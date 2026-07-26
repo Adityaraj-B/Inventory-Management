@@ -226,6 +226,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(20),
                         onTap: () {
+                          HapticFeedback.lightImpact();
                           if (nameCtrl.text.trim().isEmpty) return;
                           final wh = Warehouse(
                             id: 'wh-${const Uuid().v4().substring(0, 6)}',
@@ -310,6 +311,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                 ),
                 tooltip: 'Transfer Stock Between Warehouses',
                 onPressed: () {
+                  HapticFeedback.lightImpact();
                   HapticFeedback.selectionClick();
                   context.push(RoutePaths.billingStockTransfer);
                 },

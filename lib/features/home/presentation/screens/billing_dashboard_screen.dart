@@ -280,6 +280,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                           const SizedBox(height: 12),
                           GestureDetector(
                             onTap: () {
+                              HapticFeedback.lightImpact();
                               Clipboard.setData(
                                 ClipboardData(text: product.sku),
                               );
@@ -515,6 +516,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                           color: Colors.redAccent,
                         ),
                         onPressed: () {
+                          HapticFeedback.lightImpact();
                           HapticFeedback.mediumImpact();
                           context.read<AuthBloc>().add(AuthLogoutRequested());
                         },
@@ -740,6 +742,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                                     isSelected: isSelected,
                                     color: theme.colorScheme.primary,
                                     onTap: () {
+                                      HapticFeedback.lightImpact();
                                       HapticFeedback.selectionClick();
                                       setState(
                                         () => _selectedCategoryGroup = group,
@@ -913,6 +916,7 @@ class _PrimaryCtaButtonState extends State<_PrimaryCtaButton> {
                   color: Colors.transparent,
                   child: InkWell(
                     onTap: () {
+                      HapticFeedback.lightImpact();
                       HapticFeedback.lightImpact();
                       widget.onTap();
                     },

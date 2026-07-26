@@ -6,6 +6,7 @@ import '../../features/auth/bloc/auth_event.dart';
 import '../../features/auth/bloc/auth_state.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
+import 'package:flutter/services.dart';
 
 class AccessDeniedView extends StatelessWidget {
   final VoidCallback? onSwitchRole;
@@ -68,6 +69,7 @@ class AccessDeniedView extends StatelessWidget {
                     const SizedBox(height: 28),
                     ElevatedButton.icon(
                       onPressed: () {
+                        HapticFeedback.lightImpact();
                         context.read<AuthBloc>().add(AuthLogoutRequested());
                         if (onSwitchRole != null) {
                           onSwitchRole!();

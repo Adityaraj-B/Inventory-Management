@@ -248,6 +248,7 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                           icon: CupertinoIcons.table,
                           color: const Color(0xFF107C41), // Excel green
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             context
                                 .read<CustomerLedgerCubit>()
                                 .exportLedgerExcel();
@@ -262,6 +263,7 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                           icon: CupertinoIcons.doc_text_fill,
                           color: theme.colorScheme.primary,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             context
                                 .read<CustomerLedgerCubit>()
                                 .exportLedgerPdf();

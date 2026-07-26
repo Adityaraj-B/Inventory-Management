@@ -281,6 +281,7 @@ class _AdminCustomersScreenState extends State<AdminCustomersScreen> {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(18),
                         onTap: () {
+                          HapticFeedback.lightImpact();
                           if (nameCtrl.text.trim().isEmpty) return;
                           final customer = Customer(
                             id: 'cust-${const Uuid().v4().substring(0, 6)}',

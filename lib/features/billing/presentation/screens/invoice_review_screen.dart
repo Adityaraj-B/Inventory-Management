@@ -15,6 +15,7 @@ import 'package:vishnu_enterprises/features/billing/bloc/invoice_creation_state.
 import 'package:vishnu_enterprises/features/customers/bloc/customer_list_bloc.dart';
 import 'package:vishnu_enterprises/features/customers/bloc/customer_list_event.dart';
 import 'package:vishnu_enterprises/features/customers/bloc/customer_list_state.dart';
+import 'package:flutter/services.dart';
 
 class InvoiceReviewScreen extends StatefulWidget {
   const InvoiceReviewScreen({super.key});
@@ -113,6 +114,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
+                    HapticFeedback.lightImpact();
                     if (formKey.currentState!.validate()) {
                       final customer = Customer(
                         id: 'cust-${const Uuid().v4().substring(0, 6)}',
@@ -279,6 +281,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             IconButton(
                               icon: const Icon(CupertinoIcons.minus_circled),
                               onPressed: () {
+                                HapticFeedback.lightImpact();
                                 if (currentUser != null) {
                                   context.read<InvoiceCreationBloc>().add(
                                     UpdateCartItem(
@@ -293,6 +296,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             IconButton(
                               icon: const Icon(CupertinoIcons.add_circled),
                               onPressed: () {
+                                HapticFeedback.lightImpact();
                                 if (currentUser != null) {
                                   context.read<InvoiceCreationBloc>().add(
                                     UpdateCartItem(

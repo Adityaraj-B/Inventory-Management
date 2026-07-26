@@ -197,6 +197,7 @@ class _AddStockWarehouseModalState extends State<AddStockWarehouseModal> {
         actions: [
           TextButton(
             onPressed: () {
+              HapticFeedback.lightImpact();
               Navigator.pop(ctx);
             },
             child: const Text(

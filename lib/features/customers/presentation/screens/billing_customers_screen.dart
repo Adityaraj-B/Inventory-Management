@@ -300,6 +300,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(18),
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             if (nameCtrl.text.trim().isEmpty) return;
                             final customer = Customer(
                               id: 'cust-${const Uuid().v4().substring(0, 6)}',
@@ -397,6 +398,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
             hoverElevation: 0,
             highlightElevation: 0,
             onPressed: () {
+              HapticFeedback.lightImpact();
               final authState = context.read<AuthBloc>().state;
               final user = authState is AuthAuthenticated
                   ? authState.user
@@ -481,6 +483,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                           ),
                         ),
                         onPressed: () {
+                          HapticFeedback.lightImpact();
                           final whId = user?.warehouseId;
                           context.read<CustomerListBloc>().add(
                             CustomerListLoadRequested(warehouseId: whId),

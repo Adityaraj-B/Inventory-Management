@@ -95,6 +95,7 @@ class BillingStaffMainLayoutScreen extends StatelessWidget {
                           label: 'Dashboard',
                           isSelected: safeIndex == 0,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(0);
                           },
@@ -104,6 +105,7 @@ class BillingStaffMainLayoutScreen extends StatelessWidget {
                           label: 'Stock In',
                           isSelected: safeIndex == 1,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(1);
                           },
@@ -113,6 +115,7 @@ class BillingStaffMainLayoutScreen extends StatelessWidget {
                           label: 'Billing',
                           isSelected: safeIndex == 2,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(2);
                           },
@@ -122,6 +125,7 @@ class BillingStaffMainLayoutScreen extends StatelessWidget {
                           label: 'Customers',
                           isSelected: safeIndex == 3,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(3);
                           },

@@ -9,6 +9,7 @@ import 'package:vishnu_enterprises/features/auth/bloc/auth_state.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/receive_stock_cubit.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/widgets/receive_shipment_modal.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
+import 'package:flutter/services.dart';
 
 class ReceiveStockScanScreen extends StatefulWidget {
   const ReceiveStockScanScreen({super.key});
@@ -75,6 +76,7 @@ class _ReceiveStockScanScreenState extends State<ReceiveStockScanScreen> {
           ),
           ElevatedButton(
             onPressed: () {
+              HapticFeedback.lightImpact();
               Navigator.pop(ctx);
               final barcode = _manualBarcodeController.text.trim();
               if (barcode.isNotEmpty) {

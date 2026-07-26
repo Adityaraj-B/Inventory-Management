@@ -321,6 +321,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                                   label: 'Invoices',
                                   color: theme.colorScheme.primary,
                                   onTap: () {
+                                    HapticFeedback.lightImpact();
                                     if (state is CustomerDetailLoaded) {
                                       context.push(
                                         RoutePaths.customerTransactions,
@@ -337,6 +338,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                                   label: 'Ledger',
                                   color: const Color(0xFF107C41),
                                   onTap: () {
+                                    HapticFeedback.lightImpact();
                                     if (state is CustomerDetailLoaded) {
                                       context.push(
                                         RoutePaths.customerLedger,
@@ -353,6 +355,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                                   label: 'Transactions',
                                   color: const Color(0xFF2B579A),
                                   onTap: () {
+                                    HapticFeedback.lightImpact();
                                     if (state is CustomerDetailLoaded) {
                                       context.push(
                                         RoutePaths.customerPayments,
@@ -375,6 +378,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                                     color: AppColors.accent,
                                     isPrimary: true,
                                     onTap: () async {
+                                      HapticFeedback.lightImpact();
                                       final detailBloc = context
                                           .read<CustomerDetailBloc>();
                                       final result = await context.push(

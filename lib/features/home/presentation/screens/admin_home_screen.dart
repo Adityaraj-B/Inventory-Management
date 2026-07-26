@@ -149,6 +149,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                               color: Colors.redAccent,
                             ),
                             onPressed: () {
+                              HapticFeedback.lightImpact();
                               context.read<AuthBloc>().add(
                                 AuthLogoutRequested(),
                               );

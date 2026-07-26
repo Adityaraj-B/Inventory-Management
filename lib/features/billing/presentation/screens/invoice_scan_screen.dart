@@ -15,6 +15,7 @@ import 'package:vishnu_enterprises/features/stock/bloc/stock_bloc.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/stock_state.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:vishnu_enterprises/features/main_layout/bloc/nav_cubit.dart';
+import 'package:flutter/services.dart';
 
 class InvoiceScanScreen extends StatefulWidget {
   const InvoiceScanScreen({super.key});
@@ -112,6 +113,7 @@ class _InvoiceScanScreenState extends State<InvoiceScanScreen> {
           ),
           ElevatedButton(
             onPressed: () {
+              HapticFeedback.lightImpact();
               Navigator.pop(ctx);
               final barcode = _manualBarcodeController.text.trim();
               if (barcode.isNotEmpty) {

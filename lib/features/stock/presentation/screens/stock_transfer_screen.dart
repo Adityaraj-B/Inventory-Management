@@ -152,6 +152,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
               color: theme.colorScheme.primary,
               tooltip: 'Refresh Warehouses & Stock',
               onTap: () {
+                HapticFeedback.lightImpact();
                 HapticFeedback.selectionClick();
                 context.read<WarehouseBloc>().add(
                   const WarehouseLoadRequested(),
@@ -503,6 +504,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
 
                 return InkWell(
                   onTap: () {
+                    HapticFeedback.lightImpact();
                     HapticFeedback.selectionClick();
                     setState(() {
                       _selectedSourceWarehouseId = w.id;
@@ -655,6 +657,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                           )
                         : null,
                     onTap: () {
+                      HapticFeedback.lightImpact();
                       Navigator.pop(ctx);
                       _onSwitchDestinationWarehouse(w.id, warehouses);
                     },
@@ -883,6 +886,7 @@ class _CircularIconButtonState extends State<_CircularIconButton> {
         onTapCancel: () => setState(() => _pressed = false),
         onTap: () {
           HapticFeedback.lightImpact();
+          HapticFeedback.lightImpact();
           widget.onTap();
         },
         child: AnimatedScale(
@@ -931,6 +935,7 @@ class _PillActionButtonState extends State<_PillActionButton> {
       onTapUp: (_) => setState(() => _pressed = false),
       onTapCancel: () => setState(() => _pressed = false),
       onTap: () {
+        HapticFeedback.lightImpact();
         HapticFeedback.lightImpact();
         widget.onTap();
       },
@@ -1386,6 +1391,7 @@ class _TransferQuantityModalState extends State<_TransferQuantityModal> {
               quantity: _quantity,
               enabled: isValid,
               onTap: () {
+                HapticFeedback.lightImpact();
                 Navigator.pop(context);
                 widget.onConfirm(_quantity);
               },

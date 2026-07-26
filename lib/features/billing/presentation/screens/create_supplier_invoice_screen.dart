@@ -344,6 +344,7 @@ class _CreateSupplierInvoiceScreenState
                                     color: Colors.red,
                                   ),
                                   onPressed: () {
+                                    HapticFeedback.lightImpact();
                                     setState(() {
                                       _lineItems.removeAt(index);
                                     });
@@ -580,6 +581,7 @@ class _CreateSupplierInvoiceScreenState
                           ),
                           tileColor: Colors.grey.shade50,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             Navigator.of(context).pop();
                             _showLineItemDetailsSheet(
                               supplierItemId: item.id,
@@ -677,6 +679,7 @@ class _CreateSupplierInvoiceScreenState
                 const SizedBox(height: 24),
                 FilledButton(
                   onPressed: () async {
+                    HapticFeedback.lightImpact();
                     if (!formKey.currentState!.validate()) return;
 
                     try {
@@ -916,6 +919,7 @@ class _CreateSupplierInvoiceScreenState
                     const SizedBox(height: 24),
                     FilledButton(
                       onPressed: () {
+                        HapticFeedback.lightImpact();
                         if (!formKey.currentState!.validate()) return;
 
                         setState(() {

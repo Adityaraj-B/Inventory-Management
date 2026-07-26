@@ -90,6 +90,7 @@ class MainLayoutScreen extends StatelessWidget {
                           isSelected: currentTab == 0,
                           onTap: () {
                             HapticFeedback.lightImpact();
+                            HapticFeedback.lightImpact();
                             context.read<NavCubit>().selectTab(0);
                           },
                         ),
@@ -98,6 +99,7 @@ class MainLayoutScreen extends StatelessWidget {
                           label: 'Stock',
                           isSelected: currentTab == 1,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             HapticFeedback.lightImpact();
                             context.read<NavCubit>().selectTab(1);
                           },
@@ -108,6 +110,7 @@ class MainLayoutScreen extends StatelessWidget {
                           isSelected: currentTab == 2,
                           onTap: () {
                             HapticFeedback.lightImpact();
+                            HapticFeedback.lightImpact();
                             context.read<NavCubit>().selectTab(2);
                           },
                         ),
@@ -116,6 +119,7 @@ class MainLayoutScreen extends StatelessWidget {
                           label: 'Warehouses',
                           isSelected: currentTab == 3,
                           onTap: () {
+                            HapticFeedback.lightImpact();
                             HapticFeedback.lightImpact();
                             context.read<NavCubit>().selectTab(3);
                           },

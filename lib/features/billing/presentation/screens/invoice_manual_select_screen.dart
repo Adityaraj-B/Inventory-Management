@@ -16,6 +16,7 @@ import 'package:vishnu_enterprises/features/billing/bloc/invoice_creation_state.
 import 'package:vishnu_enterprises/features/stock/bloc/stock_bloc.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/stock_event.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/stock_state.dart';
+import 'package:flutter/services.dart';
 
 class InvoiceManualSelectScreen extends StatefulWidget {
   const InvoiceManualSelectScreen({super.key});
@@ -149,6 +150,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
 
                   ElevatedButton(
                     onPressed: () {
+                      HapticFeedback.lightImpact();
                       final qty = int.tryParse(qtyCtrl.text) ?? 1;
                       final price =
                           double.tryParse(priceCtrl.text) ?? product.unitPrice;

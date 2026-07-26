@@ -183,6 +183,7 @@ class _BillingStockInScreenState extends State<BillingStockInScreen> {
             icon: const Icon(CupertinoIcons.clock_fill, size: 20),
             onPressed: () {
               HapticFeedback.lightImpact();
+              HapticFeedback.lightImpact();
               _showHistoryBottomSheet(context);
             },
             tooltip: 'Stock Movement History',
@@ -194,6 +195,7 @@ class _BillingStockInScreenState extends State<BillingStockInScreen> {
         child: FloatingActionButton.extended(
           heroTag: 'fab_add_billing_stock',
           onPressed: () {
+            HapticFeedback.lightImpact();
             HapticFeedback.lightImpact();
             AddStockWarehouseModal.show(
               context,
@@ -229,6 +231,7 @@ class _BillingStockInScreenState extends State<BillingStockInScreen> {
                     icon: CupertinoIcons.exclamationmark_triangle,
                     action: ElevatedButton(
                       onPressed: () {
+                        HapticFeedback.lightImpact();
                         final whId = user?.warehouseId;
                         context.read<StockBloc>().add(
                           StockLoadRequested(warehouseId: whId),
@@ -261,6 +264,7 @@ class _BillingStockInScreenState extends State<BillingStockInScreen> {
                       return ProductTile(
                             product: product,
                             onTap: () {
+                              HapticFeedback.lightImpact();
                               HapticFeedback.lightImpact();
                               context.push(
                                 RoutePaths.editStock,

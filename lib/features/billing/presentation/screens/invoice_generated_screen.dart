@@ -11,6 +11,7 @@ import 'package:vishnu_enterprises/core/utils/formatters.dart';
 import 'package:vishnu_enterprises/data/models/invoice.dart';
 import 'package:vishnu_enterprises/features/billing/bloc/invoice_creation_bloc.dart';
 import 'package:vishnu_enterprises/features/billing/bloc/invoice_creation_event.dart';
+import 'package:flutter/services.dart';
 
 class InvoiceGeneratedScreen extends StatelessWidget {
   final Invoice invoice;
@@ -199,6 +200,7 @@ class InvoiceGeneratedScreen extends StatelessWidget {
 
               OutlinedButton(
                 onPressed: () {
+                  HapticFeedback.lightImpact();
                   context.read<InvoiceCreationBloc>().add(ClearCartRequested());
                   context.go(RoutePaths.billingStaffHome);
                 },
