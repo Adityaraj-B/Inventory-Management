@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -409,7 +409,7 @@ class _AddEditProductScreenState extends State<AddEditProductScreen> {
                                   fontWeight: FontWeight.w600,
                                 ),
                                 decoration: _buildInputDecoration(
-                                  labelText: 'Cost Price (â‚¹)',
+                                  labelText: 'Cost Price (₹)',
                                   prefixIcon: Icons.currency_rupee,
                                   suffixIcon: !isAdmin
                                       ? const Icon(
@@ -439,7 +439,7 @@ class _AddEditProductScreenState extends State<AddEditProductScreen> {
                                   fontWeight: FontWeight.w600,
                                 ),
                                 decoration: _buildInputDecoration(
-                                  labelText: 'Selling Price (â‚¹)',
+                                  labelText: 'Selling Price (₹)',
                                   prefixIcon:
                                       Icons.currency_rupee,
                                   suffixIcon: !isAdmin

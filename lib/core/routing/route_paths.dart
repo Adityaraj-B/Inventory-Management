@@ -1,10 +1,11 @@
-﻿class RoutePaths {
+class RoutePaths {
   static const String login = '/login';
   static const String home = '/home';
   static const String stock = '/stock';
   static const String addStock = '/stock/add';
   static const String editStock = '/stock/edit';
   static const String stockHistory = '/stock/history';
+  static const String productDetail = '/stock/product-detail';
   static const String receiveStock = '/stock/receive';
   static const String customers = '/customers';
   static const String customerDetail = '/customers/detail';

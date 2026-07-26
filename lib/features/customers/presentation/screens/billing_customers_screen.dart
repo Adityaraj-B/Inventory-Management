@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:ui';
 import 'package:uuid/uuid.dart';
 import 'package:vishnu_enterprises/data/models/customer.dart';
@@ -269,7 +269,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                               fontSize: 15,
                             ),
                             decoration: _buildInputDecoration(
-                              'Balance (â‚¹)',
+                              'Balance (₹)',
                               Icons.currency_rupee,
                             ),
                           ),
@@ -515,7 +515,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                           const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final customer = state.customers[index];
-                        final hasDue = customer.previousBalance > 0;
+                        final hasDue = customer.currentBalance > 0;
 
                         return Container(
                           decoration: BoxDecoration(
@@ -634,7 +634,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                                       ),
                                       child: Text(
                                         Formatters.currency(
-                                          customer.previousBalance,
+                                          customer.currentBalance,
                                         ),
                                         style: TextStyle(
                                           fontSize: 13,

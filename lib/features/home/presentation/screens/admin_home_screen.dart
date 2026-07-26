@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vishnu_enterprises/core/widgets/empty_state.dart';
@@ -182,7 +182,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                     context,
                                     title: "Profit",
                                     value:
-                                        'â‚¹${state.todayProfit.toStringAsFixed(0)}',
+                                        '₹${state.todayProfit.toStringAsFixed(0)}',
                                     icon: Icons.trending_up_rounded,
                                     iconColor: Colors.purple.shade600,
                                     bgColor: Colors.purple.shade50,
@@ -380,7 +380,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  'â‚¹${amount.toStringAsFixed(2)}',
+                  '₹${amount.toStringAsFixed(2)}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 36,

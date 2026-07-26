@@ -1,4 +1,4 @@
-﻿import 'package:supabase_flutter/supabase_flutter.dart' as supa;
+import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import '../customer_repository.dart';
 import '../../models/customer.dart';
 
@@ -10,7 +10,9 @@ class SupabaseCustomerRepository implements CustomerRepository {
     String? searchQuery,
     String? warehouseId,
   }) async {
-    var query = _supabase.from('customers').select();
+    var query = _supabase.from('customers').select(
+      '*, invoices(id, date, grand_total, amount_paid), payments(date, amount, invoice_id)',
+    );
 
     if (warehouseId != null) {
       query = query.eq('warehouse_id', warehouseId);

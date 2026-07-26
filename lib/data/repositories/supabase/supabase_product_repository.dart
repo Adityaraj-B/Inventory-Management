@@ -1,4 +1,4 @@
-﻿import 'package:supabase_flutter/supabase_flutter.dart' as supa;
+import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import '../product_repository.dart';
 import '../../models/product.dart';
 import '../../models/stock_movement.dart';
@@ -112,7 +112,7 @@ class SupabaseProductRepository implements ProductRepository {
     if (productId != null) {
       query = query.eq('stock_entry_items.product_id', productId);
     }
-    final response = await query.order('created_at', ascending: false);
+    await query.order('created_at', ascending: false);
 
     // We would map this properly, but stock_movement might need its own model update
     // For now returning empty to satisfy interface, will update if needed

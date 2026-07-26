@@ -1,8 +1,10 @@
-﻿import 'dart:ui';
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:vishnu_enterprises/core/routing/route_paths.dart';
 import 'package:vishnu_enterprises/core/theme/app_colors.dart';
 import 'package:vishnu_enterprises/core/widgets/empty_state.dart';
 import 'package:vishnu_enterprises/core/widgets/loading_indicator.dart';
@@ -727,8 +729,13 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                             separatorBuilder: (context, index) =>
                                 const SizedBox(height: 12),
                             itemBuilder: (context, index) {
+                              final product = _stockedProducts[index];
                               return ProductTile(
-                                product: _stockedProducts[index],
+                                product: product,
+                                onTap: () {
+                                  HapticFeedback.lightImpact();
+                                  context.push(RoutePaths.productDetail, extra: product);
+                                },
                               );
                             },
                           ),

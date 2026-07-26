@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +16,6 @@ import 'package:vishnu_enterprises/features/billing/bloc/invoice_creation_state.
 import 'package:vishnu_enterprises/features/customers/bloc/customer_list_bloc.dart';
 import 'package:vishnu_enterprises/features/customers/bloc/customer_list_event.dart';
 import 'package:vishnu_enterprises/features/customers/bloc/customer_list_state.dart';
-import 'package:flutter/services.dart';
 
 class InvoiceReviewScreen extends StatefulWidget {
   const InvoiceReviewScreen({super.key});
@@ -273,7 +272,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
-                          '${item.totalUnits} units @ â‚¹${item.rate.toStringAsFixed(2)} / unit',
+                          '${item.totalUnits} units @ ₹${item.rate.toStringAsFixed(2)} / unit',
                         ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -351,7 +350,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             decimal: true,
                           ),
                           decoration: const InputDecoration(
-                            labelText: 'Discount Amount (â‚¹)',
+                            labelText: 'Discount Amount (₹)',
                           ),
                           onChanged: (val) {
                             final d = double.tryParse(val) ?? 0.0;
@@ -420,7 +419,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             decimal: true,
                           ),
                           decoration: const InputDecoration(
-                            labelText: 'Amount Paid (â‚¹)',
+                            labelText: 'Amount Paid (₹)',
                           ),
                           onChanged: (val) {
                             final p = double.tryParse(val) ?? 0.0;

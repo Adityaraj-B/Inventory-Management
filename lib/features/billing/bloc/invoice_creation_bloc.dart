@@ -1,4 +1,4 @@
-﻿import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uuid/uuid.dart';
 import '../../../data/models/invoice.dart';
 import '../../../data/models/invoice_line_item.dart';
@@ -15,7 +15,6 @@ class InvoiceCreationBloc
     extends Bloc<InvoiceCreationEvent, InvoiceCreationState> {
   final InvoiceRepository _invoiceRepository;
   final PaymentRepository _paymentRepository;
-  final CustomerRepository _customerRepository;
   final ProductRepository _productRepository;
 
   InvoiceCreationBloc({
@@ -25,7 +24,6 @@ class InvoiceCreationBloc
     required ProductRepository productRepository,
   }) : _invoiceRepository = invoiceRepository,
        _paymentRepository = paymentRepository,
-       _customerRepository = customerRepository,
        _productRepository = productRepository,
        super(const InvoiceCreationInitial()) {
     on<AddProductToCart>(_onAddProduct);

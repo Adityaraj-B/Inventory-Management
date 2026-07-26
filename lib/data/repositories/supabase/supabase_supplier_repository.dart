@@ -1,4 +1,4 @@
-﻿import 'package:supabase_flutter/supabase_flutter.dart' as supa;
+import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import '../supplier_repository.dart';
 import '../../models/supplier.dart';
 import '../../models/supplier_item.dart';
@@ -108,7 +108,7 @@ class SupabaseSupplierRepository implements SupplierRepository {
 
   @override
   Future<List<SupplierInvoice>> getSupplierInvoices(String warehouseId) async {
-    final response = await _supabase
+    await _supabase
         .from('supplier_invoices')
         .select('*, supplier_invoice_line_items(*)')
         .eq('warehouse_id', warehouseId)

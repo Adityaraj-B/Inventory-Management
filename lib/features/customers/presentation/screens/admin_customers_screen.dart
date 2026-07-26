@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -250,7 +250,7 @@ class _AdminCustomersScreenState extends State<AdminCustomersScreen> {
                             fontSize: 15,
                           ),
                           decoration: _buildInputDecoration(
-                            'Balance (â‚¹)',
+                            'Balance (₹)',
                             Icons.currency_rupee,
                           ),
                         ),
@@ -483,7 +483,7 @@ class _AdminCustomersScreenState extends State<AdminCustomersScreen> {
                           const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final customer = state.customers[index];
-                        final hasDue = customer.previousBalance > 0;
+                        final hasDue = customer.currentBalance > 0;
 
                         return Container(
                               decoration: BoxDecoration(
@@ -654,7 +654,7 @@ class _AdminCustomersScreenState extends State<AdminCustomersScreen> {
                                               ),
                                               child: Text(
                                                 Formatters.currency(
-                                                  customer.previousBalance,
+                                                  customer.currentBalance,
                                                 ),
                                                 style: TextStyle(
                                                   fontSize: 13,

@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -77,7 +77,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                     ),
                   ),
                   Text(
-                    'Available: ${product.quantityInStock} units | MRP: â‚¹${product.mrp}',
+                    'Available: ${product.quantityInStock} units | MRP: ₹${product.mrp}',
                     style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                   ),
                   const SizedBox(height: 16),
@@ -139,7 +139,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                             decimal: true,
                           ),
                           decoration: InputDecoration(
-                            labelText: 'Unit Rate (â‚¹)',
+                            labelText: 'Unit Rate (₹)',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -250,7 +250,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                                 ),
                               ),
                               subtitle: Text(
-                                'SKU: ${product.sku} | Stock: ${product.quantityInStock} pcs | MRP: â‚¹${product.mrp}',
+                                'SKU: ${product.sku} | Stock: ${product.quantityInStock} pcs | MRP: ₹${product.mrp}',
                               ),
                               trailing: IconButton(
                                 icon: const Icon(

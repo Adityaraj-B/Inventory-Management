@@ -1,4 +1,4 @@
-﻿import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../data/models/supplier.dart';
@@ -192,7 +192,7 @@ class _AddSupplierDialogState extends State<AddSupplierDialog> {
                 TextFormField(
                   controller: _balanceController,
                   decoration: _decoration(
-                    label: 'Balance Remaining (â‚¹)',
+                    label: 'Balance Remaining (₹)',
                     icon: Icons.account_balance_wallet_rounded,
                   ),
                   style: const TextStyle(

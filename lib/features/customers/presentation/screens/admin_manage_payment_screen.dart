@@ -1,4 +1,4 @@
-﻿import 'dart:ui';
+import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -370,7 +370,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 2),
                                       child: Text(
-                                        'Payment exceeds balance by ${Formatters.currency(state.excessAmount)}. Remaining balance will cap at â‚¹0.00.',
+                                        'Payment exceeds balance by ${Formatters.currency(state.excessAmount)}. Remaining balance will cap at ₹0.00.',
                                         style: const TextStyle(
                                           fontSize: 13,
                                           color: Color(0xFF9A3412),
@@ -420,7 +420,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                     },
                     decoration: _buildInputDecoration(
                       context,
-                      label: 'Amount Received (â‚¹)',
+                      label: 'Amount Received (₹)',
                       icon: Icons.currency_rupee,
                     ),
                   ),

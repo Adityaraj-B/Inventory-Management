@@ -1,4 +1,4 @@
-﻿import 'dart:async';
+import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -138,10 +138,10 @@ class _SelectSupplierScreenState extends State<SelectSupplierScreen> {
                       vertical: 9,
                     ),
                     decoration: BoxDecoration(
-                      color: theme.colorScheme.primary.withOpacity(0.08),
+                      color: theme.colorScheme.primary.withValues(alpha: 0.08),
                       borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: theme.colorScheme.primary.withOpacity(0.14),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.14),
                         width: 1,
                       ),
                     ),
@@ -174,7 +174,7 @@ class _SelectSupplierScreenState extends State<SelectSupplierScreen> {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.04),
+                          color: Colors.black.withValues(alpha: 0.04),
                           blurRadius: 16,
                           offset: const Offset(0, 4),
                         ),
@@ -238,7 +238,7 @@ class _SelectSupplierScreenState extends State<SelectSupplierScreen> {
                       physics: const BouncingScrollPhysics(),
                       padding: const EdgeInsets.fromLTRB(20, 8, 20, 100),
                       itemCount: _suppliers.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 12),
+                      separatorBuilder: (_, _) => const SizedBox(height: 12),
                       itemBuilder: (context, index) {
                         final supplier = _suppliers[index];
                         return _SupplierCard(
@@ -294,11 +294,11 @@ class _NewSupplierFabState extends State<_NewSupplierFab> {
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [widget.color, widget.color.withOpacity(0.82)],
+              colors: [widget.color, widget.color.withValues(alpha: 0.82)],
             ),
             boxShadow: [
               BoxShadow(
-                color: widget.color.withOpacity(_pressed ? 0.22 : 0.4),
+                color: widget.color.withValues(alpha: _pressed ? 0.22 : 0.4),
                 blurRadius: _pressed ? 12 : 20,
                 offset: Offset(0, _pressed ? 5 : 10),
               ),
@@ -363,7 +363,7 @@ class _SupplierCardState extends State<_SupplierCard> {
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(_pressed ? 0.02 : 0.04),
+                color: Colors.black.withValues(alpha: _pressed ? 0.02 : 0.04),
                 blurRadius: _pressed ? 8 : 12,
                 offset: const Offset(0, 4),
               ),
@@ -388,13 +388,13 @@ class _SupplierCardState extends State<_SupplierCard> {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            widget.color.withOpacity(0.82),
+                            widget.color.withValues(alpha: 0.82),
                             widget.color,
                           ],
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: widget.color.withOpacity(0.28),
+                            color: widget.color.withValues(alpha: 0.28),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),

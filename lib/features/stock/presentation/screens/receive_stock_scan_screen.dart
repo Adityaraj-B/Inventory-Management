@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -8,7 +8,6 @@ import 'package:vishnu_enterprises/core/theme/app_colors.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/receive_stock_cubit.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/widgets/receive_shipment_modal.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:flutter/services.dart';
 
 class ReceiveStockScanScreen extends StatefulWidget {
   const ReceiveStockScanScreen({super.key});

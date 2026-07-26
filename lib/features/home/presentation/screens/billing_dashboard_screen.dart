@@ -31,7 +31,6 @@ class BillingDashboardScreen extends StatefulWidget {
 
 class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
   Timer? _debounce;
-  String _searchQuery = '';
   String _selectedCategoryGroup = 'All';
 
   @override
@@ -51,7 +50,6 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
   }
 
   void _onSearchChanged(String query) {
-    setState(() => _searchQuery = query);
     final authState = context.read<AuthBloc>().state;
     final warehouseId = authState is AuthAuthenticated
         ? authState.user.warehouseId
@@ -73,38 +71,6 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
     }
 
     return results.toList();
-  }
-
-  void _showComingSoon(BuildContext context, String feature) {
-    HapticFeedback.selectionClick();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Row(
-          children: [
-            const Icon(
-              Icons.access_time_rounded,
-              color: Colors.white,
-              size: 16,
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Text(
-                '$feature — Feature coming soon',
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 13,
-                ),
-              ),
-            ),
-          ],
-        ),
-        backgroundColor: Colors.black87,
-        behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-        margin: const EdgeInsets.all(16),
-        duration: const Duration(seconds: 2),
-      ),
-    );
   }
 
   void _showProductDetailSheet(BuildContext context, Product product) {
@@ -447,8 +413,6 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final authState = context.watch<AuthBloc>().state;
-    final user = authState is AuthAuthenticated ? authState.user : null;
 
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark.copyWith(
@@ -470,7 +434,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                 parent: BouncingScrollPhysics(),
               ),
               slivers: [
-                // ── App bar (mirrors the admin home screen's floating-button pattern) ──
+                // â”€â”€ App bar (mirrors the admin home screen's floating-button pattern) â”€â”€
                 SliverAppBar(
                   expandedHeight: 76,
                   floating: true,
@@ -530,7 +494,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        // ── Create Invoice hero CTA ─────────────────────────────
+                        // â”€â”€ Create Invoice hero CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
                         Padding(
                               padding: const EdgeInsets.fromLTRB(16, 8, 16, 12),
                               child: _PrimaryCtaButton(
@@ -549,7 +513,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                             .fade(duration: 400.ms)
                             .slideY(begin: 0.1, end: 0),
 
-                        // ── At-a-glance stats ────────────────────────────────────
+                        // â”€â”€ At-a-glance stats â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
                         if (state is StockLoaded)
                           Padding(
                                 padding: const EdgeInsets.fromLTRB(
@@ -589,7 +553,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
 
                         const SizedBox(height: 6),
 
-                        // ── Quick actions ─────────────────────────────────────────
+                        // â”€â”€ Quick actions â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
                         Padding(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 16.0,
@@ -663,7 +627,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                           ),
                         ),
 
-                        // ── Inventory Management header ─────────────────────────
+                        // â”€â”€ Inventory Management header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
                         Padding(
                           padding: const EdgeInsets.fromLTRB(16, 20, 16, 10),
                           child: Row(
@@ -842,7 +806,7 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
   }
 }
 
-// ── Hero CTA button (echoes the admin home screen's primary stat-card motif) ──
+// â”€â”€ Hero CTA button (echoes the admin home screen's primary stat-card motif) â”€â”€
 class _PrimaryCtaButton extends StatefulWidget {
   final String label;
   final String subtitle;
@@ -995,7 +959,7 @@ class _PrimaryCtaButtonState extends State<_PrimaryCtaButton> {
   }
 }
 
-// ── At-a-glance stat tile (matches the admin home screen's secondary stat card) ──
+// â”€â”€ At-a-glance stat tile (matches the admin home screen's secondary stat card) â”€â”€
 class _QuickStatCard extends StatelessWidget {
   final String title;
   final String value;
@@ -1071,7 +1035,7 @@ class _QuickStatCard extends StatelessWidget {
   }
 }
 
-// ── Quick action card (Supplier Invoices / Stock Transfer) with press feedback ──
+// â”€â”€ Quick action card (Supplier Invoices / Stock Transfer) with press feedback â”€â”€
 class _QuickActionCard extends StatefulWidget {
   final String title;
   final String subtitle;
@@ -1184,7 +1148,7 @@ class _QuickActionCardState extends State<_QuickActionCard> {
   }
 }
 
-// ── Category filter pill ──────────────────────────────────────────────────
+// â”€â”€ Category filter pill â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _CategoryChip extends StatelessWidget {
   final String label;
   final bool isSelected;
@@ -1240,7 +1204,7 @@ class _CategoryChip extends StatelessWidget {
   }
 }
 
-// ── Product grid card ──────────────────────────────────────────────────────
+// â”€â”€ Product grid card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _ProductCard extends StatefulWidget {
   final Product product;
   final VoidCallback onTap;

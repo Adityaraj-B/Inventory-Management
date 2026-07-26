@@ -1,4 +1,4 @@
-﻿import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -16,7 +16,6 @@ import 'package:vishnu_enterprises/features/stock/bloc/stock_bloc.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/stock_state.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:vishnu_enterprises/features/main_layout/bloc/nav_cubit.dart';
-import 'package:flutter/services.dart';
 
 class InvoiceScanScreen extends StatefulWidget {
   const InvoiceScanScreen({super.key});

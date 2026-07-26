@@ -1,4 +1,4 @@
-﻿import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vishnu_enterprises/core/routing/go_router_refresh_stream.dart';
 import 'package:vishnu_enterprises/core/routing/page_transitions.dart';
@@ -21,6 +21,7 @@ import 'package:vishnu_enterprises/features/customers/presentation/screens/admin
 import 'package:vishnu_enterprises/features/customers/presentation/screens/admin_manage_payment_screen.dart';
 import 'package:vishnu_enterprises/features/main_layout/presentation/screens/main_layout_screen.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/screens/add_edit_product_screen.dart';
+import 'package:vishnu_enterprises/features/stock/presentation/screens/product_detail_screen.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/screens/receive_stock_scan_screen.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/screens/stock_history_screen.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/screens/stock_transfer_screen.dart';
@@ -140,6 +141,16 @@ class AppRouter {
             return CustomPageTransitions.buildDrillDownPage(
               key: state.pageKey,
               child: AddEditProductScreen(productToEdit: product),
+            );
+          },
+        ),
+        GoRoute(
+          path: RoutePaths.productDetail,
+          pageBuilder: (context, state) {
+            final product = state.extra as Product;
+            return CustomPageTransitions.buildFadeScaleSlidePage(
+              key: state.pageKey,
+              child: ProductDetailScreen(product: product),
             );
           },
         ),
