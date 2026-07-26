@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vishnu_enterprises/core/widgets/empty_state.dart';
@@ -74,6 +74,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                 color: theme.colorScheme.primary,
                 backgroundColor: Colors.white,
                 onRefresh: () async {
+                  HapticFeedback.lightImpact();
                   context.read<HomeBloc>().add(HomeRefreshRequested());
                 },
                 child: CustomScrollView(
@@ -123,9 +124,12 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                               size: 20,
                               color: theme.colorScheme.primary,
                             ),
-                            onPressed: () => context.read<HomeBloc>().add(
-                              HomeRefreshRequested(),
-                            ),
+                            onPressed: () {
+                              HapticFeedback.lightImpact();
+                              context.read<HomeBloc>().add(
+                                HomeRefreshRequested(),
+                              );
+                            },
                             tooltip: 'Refresh Dashboard',
                           ),
                         ),
@@ -178,7 +182,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                     context,
                                     title: "Profit",
                                     value:
-                                        '₹${state.todayProfit.toStringAsFixed(0)}',
+                                        'â‚¹${state.todayProfit.toStringAsFixed(0)}',
                                     icon: Icons.trending_up_rounded,
                                     iconColor: Colors.purple.shade600,
                                     bgColor: Colors.purple.shade50,
@@ -376,7 +380,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                 ),
                 const SizedBox(height: 24),
                 Text(
-                  '₹${amount.toStringAsFixed(2)}',
+                  'â‚¹${amount.toStringAsFixed(2)}',
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 36,

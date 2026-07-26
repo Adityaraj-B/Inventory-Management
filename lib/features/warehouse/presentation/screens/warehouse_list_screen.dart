@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -104,7 +104,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withValues(alpha: 0.1),
                   blurRadius: 20,
                   offset: const Offset(0, -5),
                 ),
@@ -156,7 +156,10 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                             size: 20,
                             color: Colors.black54,
                           ),
-                          onPressed: () => Navigator.pop(modalContext),
+                          onPressed: () {
+                            HapticFeedback.lightImpact();
+                            Navigator.pop(modalContext);
+                          },
                         ),
                       ),
                     ],
@@ -209,13 +212,13 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          theme.colorScheme.primary.withOpacity(0.85),
+                          theme.colorScheme.primary.withValues(alpha: 0.85),
                           theme.colorScheme.primary,
                         ],
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.primary.withOpacity(0.3),
+                          color: theme.colorScheme.primary.withValues(alpha: 0.3),
                           blurRadius: 16,
                           offset: const Offset(0, 8),
                         ),
@@ -297,7 +300,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -324,7 +327,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -381,13 +384,13 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                theme.colorScheme.primary.withOpacity(0.85),
+                theme.colorScheme.primary.withValues(alpha: 0.85),
                 theme.colorScheme.primary,
               ],
             ),
             boxShadow: [
               BoxShadow(
-                color: theme.colorScheme.primary.withOpacity(0.35),
+                color: theme.colorScheme.primary.withValues(alpha: 0.35),
                 blurRadius: 16,
                 offset: const Offset(0, 8),
               ),
@@ -400,7 +403,10 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
             focusElevation: 0,
             hoverElevation: 0,
             highlightElevation: 0,
-            onPressed: _showAddWarehouseDialog,
+            onPressed: () {
+              HapticFeedback.lightImpact();
+              _showAddWarehouseDialog();
+            },
             icon: const Icon(CupertinoIcons.add, size: 20, color: Colors.white),
             label: const Text(
               'New Warehouse',
@@ -420,7 +426,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
+                      color: Colors.black.withValues(alpha: 0.04),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -501,10 +507,13 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                         final wh = state.warehouses[index];
                         return _HoveringWarehouseTile(
                               warehouse: wh,
-                              onTap: () => context.push(
-                                RoutePaths.warehouseDetail,
-                                extra: wh,
-                              ),
+                              onTap: () {
+                                HapticFeedback.lightImpact();
+                                context.push(
+                                  RoutePaths.warehouseDetail,
+                                  extra: wh,
+                                );
+                              },
                             )
                             .animate()
                             .fade(duration: 400.ms, delay: (index * 50).ms)
@@ -512,7 +521,7 @@ class _WarehouseListScreenState extends State<WarehouseListScreen> {
                               begin: 0.1,
                               end: 0,
                               duration: 400.ms,
-                              curve: Curves.easeOutQuart,
+                              curve: Curves.fastLinearToSlowEaseIn,
                               delay: (index * 50).ms,
                             );
                       },
@@ -548,7 +557,7 @@ class _HoveringWarehouseTile extends StatelessWidget {
         border: Border.all(color: Colors.grey.shade100, width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             blurRadius: 24,
             offset: const Offset(0, 10),
           ),
@@ -558,7 +567,10 @@ class _HoveringWarehouseTile extends StatelessWidget {
         color: Colors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(24),
-          onTap: onTap,
+          onTap: () {
+            HapticFeedback.lightImpact();
+            onTap();
+          },
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
@@ -571,10 +583,10 @@ class _HoveringWarehouseTile extends StatelessWidget {
                       width: 52,
                       height: 52,
                       decoration: BoxDecoration(
-                        color: theme.colorScheme.primary.withOpacity(0.08),
+                        color: theme.colorScheme.primary.withValues(alpha: 0.08),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(
-                          color: theme.colorScheme.primary.withOpacity(0.1),
+                          color: theme.colorScheme.primary.withValues(alpha: 0.1),
                         ),
                       ),
                       child: Center(
@@ -634,7 +646,7 @@ class _HoveringWarehouseTile extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   child: Divider(
-                    color: Colors.black.withOpacity(0.05),
+                    color: Colors.black.withValues(alpha: 0.05),
                     height: 1,
                     thickness: 1.5,
                   ),
@@ -678,7 +690,7 @@ class _HoveringWarehouseTile extends StatelessWidget {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color: theme.colorScheme.primary.withOpacity(0.1),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(8),
                           ),
                           child: Row(

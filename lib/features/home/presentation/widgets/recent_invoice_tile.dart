@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:vishnu_enterprises/data/models/invoice.dart';
 
@@ -52,7 +53,10 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
         child: Material(
           color: Colors.transparent,
           child: InkWell(
-            onTap: () => setState(() => _isExpanded = !_isExpanded),
+            onTap: () {
+              HapticFeedback.lightImpact();
+              setState(() => _isExpanded = !_isExpanded);
+            },
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -115,7 +119,7 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           Text(
-                            '₹${widget.invoice.grandTotal.toStringAsFixed(2)}',
+                            'â‚¹${widget.invoice.grandTotal.toStringAsFixed(2)}',
                             style: TextStyle(
                               fontWeight: FontWeight.w800,
                               color: theme.colorScheme.primary,
@@ -136,8 +140,8 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                       const SizedBox(width: 8),
                       AnimatedRotation(
                         turns: _isExpanded ? 0.5 : 0.0,
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeOutCubic,
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.fastLinearToSlowEaseIn,
                         child: Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: Colors.grey.shade400,
@@ -147,8 +151,8 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                     ],
                   ),
                   AnimatedSize(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOutCubic,
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.fastLinearToSlowEaseIn,
                     child: _isExpanded
                         ? Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -194,7 +198,7 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                                             ),
                                             const SizedBox(height: 2),
                                             Text(
-                                              '₹${item.rate.toStringAsFixed(2)} × ${item.quantity}',
+                                              'â‚¹${item.rate.toStringAsFixed(2)} Ã— ${item.quantity}',
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.grey.shade600,
@@ -209,7 +213,7 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                                             CrossAxisAlignment.end,
                                         children: [
                                           Text(
-                                            '₹${item.lineTotal.toStringAsFixed(2)}',
+                                            'â‚¹${item.lineTotal.toStringAsFixed(2)}',
                                             style: const TextStyle(
                                               fontSize: 13,
                                               fontWeight: FontWeight.w700,
@@ -218,7 +222,7 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                                           ),
                                           const SizedBox(height: 2),
                                           Text(
-                                            '+ ₹${itemProfit.toStringAsFixed(1)}',
+                                            '+ â‚¹${itemProfit.toStringAsFixed(1)}',
                                             style: const TextStyle(
                                               fontSize: 11,
                                               color: Colors.green,
@@ -245,12 +249,12 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                                   children: [
                                     _buildSummaryRow(
                                       'New Invoice Total',
-                                      '₹${widget.invoice.grandTotal.toStringAsFixed(2)}',
+                                      'â‚¹${widget.invoice.grandTotal.toStringAsFixed(2)}',
                                     ),
                                     const SizedBox(height: 8),
                                     _buildSummaryRow(
                                       'Amount Received',
-                                      '- ₹${widget.invoice.amountPaid.toStringAsFixed(2)}',
+                                      '- â‚¹${widget.invoice.amountPaid.toStringAsFixed(2)}',
                                     ),
                                     const Padding(
                                       padding: EdgeInsets.symmetric(
@@ -260,7 +264,7 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                                     ),
                                     _buildSummaryRow(
                                       'Remaining Balance',
-                                      '₹${widget.invoice.outstandingAmount.toStringAsFixed(2)}',
+                                      'â‚¹${widget.invoice.outstandingAmount.toStringAsFixed(2)}',
                                       isBold: true,
                                       valueColor:
                                           widget.invoice.outstandingAmount > 0
@@ -270,7 +274,7 @@ class _HomeInvoiceExpandableCardState extends State<HomeInvoiceExpandableCard> {
                                     const SizedBox(height: 8),
                                     _buildSummaryRow(
                                       'Order Profit',
-                                      '₹${orderProfit.toStringAsFixed(2)}',
+                                      'â‚¹${orderProfit.toStringAsFixed(2)}',
                                       isBold: true,
                                       valueColor: Colors.deepPurple.shade600,
                                     ),

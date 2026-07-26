@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+﻿import 'package:equatable/equatable.dart';
 import '../../../data/models/product.dart';
 
 abstract class StockEvent extends Equatable {

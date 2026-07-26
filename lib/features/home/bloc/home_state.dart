@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+﻿import 'package:equatable/equatable.dart';
 import 'package:vishnu_enterprises/data/models/invoice.dart';
 
 abstract class HomeState extends Equatable {

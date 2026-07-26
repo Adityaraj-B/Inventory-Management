@@ -1,4 +1,4 @@
-import 'package:supabase_flutter/supabase_flutter.dart' as supa;
+﻿import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import '../shipment_repository.dart';
 import '../../models/shipment.dart';
 

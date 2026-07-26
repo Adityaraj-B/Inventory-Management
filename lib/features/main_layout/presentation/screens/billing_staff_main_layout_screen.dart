@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -44,16 +44,16 @@ class BillingStaffMainLayoutScreen extends StatelessWidget {
                 return IgnorePointer(
                   ignoring: !isActive,
                   child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeOutQuart,
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.fastLinearToSlowEaseIn,
                     opacity: isActive ? 1.0 : 0.0,
                     child: AnimatedScale(
-                      duration: const Duration(milliseconds: 200),
-                      curve: Curves.easeOutQuart,
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.fastLinearToSlowEaseIn,
                       scale: isActive ? 1.0 : 0.98,
                       child: AnimatedSlide(
-                        duration: const Duration(milliseconds: 200),
-                        curve: Curves.easeOutQuart,
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.fastLinearToSlowEaseIn,
                         offset: isActive ? Offset.zero : const Offset(0, 0.02),
                         child: TickerMode(
                           enabled: isActive,
@@ -75,7 +75,7 @@ class BillingStaffMainLayoutScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(32),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.06),
+                        color: Colors.black.withValues(alpha: 0.06),
                         blurRadius: 24,
                         offset: const Offset(0, 8),
                       ),
@@ -172,8 +172,8 @@ class _NavItem extends StatelessWidget {
                 .scaleXY(
                   begin: 1.0,
                   end: 1.15,
-                  duration: 200.ms,
-                  curve: Curves.easeOutBack,
+                  duration: 400.ms,
+                  curve: Curves.fastLinearToSlowEaseIn,
                 )
                 .tint(color: AppColors.primary, end: 1.0, duration: 150.ms),
             const SizedBox(height: 3),
@@ -191,8 +191,8 @@ class _NavItem extends StatelessWidget {
                 .scaleXY(
                   begin: 0.95,
                   end: 1.0,
-                  duration: 200.ms,
-                  curve: Curves.easeOutBack,
+                  duration: 400.ms,
+                  curve: Curves.fastLinearToSlowEaseIn,
                 ),
           ],
         ),

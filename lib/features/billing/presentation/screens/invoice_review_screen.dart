@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:uuid/uuid.dart';
@@ -90,8 +91,9 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                   validator: (val) {
                     if (val == null || val.trim().isEmpty) return null;
                     final regex = RegExp(r'^\+?[0-9]{10,13}$');
-                    if (!regex.hasMatch(val.trim()))
+                    if (!regex.hasMatch(val.trim())) {
                       return 'Invalid phone (10-13 digits)';
+                    }
                     return null;
                   },
                 ),
@@ -106,8 +108,9 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                     final regex = RegExp(
                       r'^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[0-9A-Z]{3}$',
                     );
-                    if (!regex.hasMatch(upper))
+                    if (!regex.hasMatch(upper)) {
                       return 'Invalid 15-char GSTIN format';
+                    }
                     return null;
                   },
                 ),
@@ -209,7 +212,10 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                               ),
                             ),
                             TextButton.icon(
-                              onPressed: _showQuickAddCustomerDialog,
+                              onPressed: () {
+                                HapticFeedback.lightImpact();
+                                _showQuickAddCustomerDialog();
+                              },
                               icon: const Icon(CupertinoIcons.add, size: 16),
                               label: const Text('Quick Add'),
                             ),
@@ -220,7 +226,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             if (custState is CustomerListLoaded) {
                               return DropdownButtonFormField<Customer>(
                                 isExpanded: true,
-                                value: state.selectedCustomer,
+                                initialValue: state.selectedCustomer,
                                 hint: const Text('Select Customer'),
                                 items: custState.customers.map((c) {
                                   return DropdownMenuItem(
@@ -267,7 +273,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
-                          '${item.totalUnits} units @ ₹${item.rate.toStringAsFixed(2)} / unit',
+                          '${item.totalUnits} units @ â‚¹${item.rate.toStringAsFixed(2)} / unit',
                         ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
@@ -345,7 +351,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             decimal: true,
                           ),
                           decoration: const InputDecoration(
-                            labelText: 'Discount Amount (₹)',
+                            labelText: 'Discount Amount (â‚¹)',
                           ),
                           onChanged: (val) {
                             final d = double.tryParse(val) ?? 0.0;
@@ -377,7 +383,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                         ),
                         const SizedBox(height: 12),
                         DropdownButtonFormField<String>(
-                          value: state.paymentMethod,
+                          initialValue: state.paymentMethod,
                           items: const [
                             DropdownMenuItem(
                               value: 'Cash',
@@ -414,7 +420,7 @@ class _InvoiceReviewScreenState extends State<InvoiceReviewScreen> {
                             decimal: true,
                           ),
                           decoration: const InputDecoration(
-                            labelText: 'Amount Paid (₹)',
+                            labelText: 'Amount Paid (â‚¹)',
                           ),
                           onChanged: (val) {
                             final p = double.tryParse(val) ?? 0.0;

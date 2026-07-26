@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -409,8 +409,8 @@ class _AddEditProductScreenState extends State<AddEditProductScreen> {
                                   fontWeight: FontWeight.w600,
                                 ),
                                 decoration: _buildInputDecoration(
-                                  labelText: 'Cost Price (₹)',
-                                  prefixIcon: CupertinoIcons.money_dollar,
+                                  labelText: 'Cost Price (â‚¹)',
+                                  prefixIcon: Icons.currency_rupee,
                                   suffixIcon: !isAdmin
                                       ? const Icon(
                                           CupertinoIcons.lock_fill,
@@ -439,9 +439,9 @@ class _AddEditProductScreenState extends State<AddEditProductScreen> {
                                   fontWeight: FontWeight.w600,
                                 ),
                                 decoration: _buildInputDecoration(
-                                  labelText: 'Selling Price (₹)',
+                                  labelText: 'Selling Price (â‚¹)',
                                   prefixIcon:
-                                      CupertinoIcons.money_dollar_circle_fill,
+                                      Icons.currency_rupee,
                                   suffixIcon: !isAdmin
                                       ? const Icon(
                                           CupertinoIcons.lock_fill,
@@ -517,7 +517,7 @@ class _AddEditProductScreenState extends State<AddEditProductScreen> {
                                     ? _warehouseId
                                     : state.warehouses.first.id;
                                 return DropdownButtonFormField<String>(
-                                  value: currentVal,
+                                  initialValue: currentVal,
                                   style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
@@ -536,8 +536,9 @@ class _AddEditProductScreenState extends State<AddEditProductScreen> {
                                     );
                                   }).toList(),
                                   onChanged: (v) {
-                                    if (v != null)
+                                    if (v != null) {
                                       setState(() => _warehouseId = v);
+                                    }
                                   },
                                 );
                               } else {

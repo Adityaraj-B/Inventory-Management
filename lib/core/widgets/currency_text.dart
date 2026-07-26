@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import '../utils/formatters.dart';
 
 class CurrencyText extends StatelessWidget {

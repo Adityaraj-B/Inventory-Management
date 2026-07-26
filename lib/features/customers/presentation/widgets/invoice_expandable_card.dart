@@ -1,4 +1,4 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
@@ -105,7 +105,7 @@ class _InvoiceExpandableCardState extends State<InvoiceExpandableCard> {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -121,13 +121,13 @@ class _InvoiceExpandableCardState extends State<InvoiceExpandableCard> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.white.withOpacity(0.95),
-                  Colors.white.withOpacity(0.75),
+                  Colors.white.withValues(alpha: 0.95),
+                  Colors.white.withValues(alpha: 0.75),
                 ],
               ),
               borderRadius: BorderRadius.circular(24),
               border: Border.all(
-                color: Colors.white.withOpacity(0.9),
+                color: Colors.white.withValues(alpha: 0.9),
                 width: 1.5,
               ),
             ),
@@ -148,12 +148,12 @@ class _InvoiceExpandableCardState extends State<InvoiceExpandableCard> {
                             height: 48,
                             width: 48,
                             decoration: BoxDecoration(
-                              color: theme.colorScheme.primary.withOpacity(
+                              color: theme.colorScheme.primary.withValues(alpha: 
                                 0.08,
                               ),
                               borderRadius: BorderRadius.circular(14),
                               border: Border.all(
-                                color: theme.colorScheme.primary.withOpacity(
+                                color: theme.colorScheme.primary.withValues(alpha: 
                                   0.12,
                                 ),
                               ),

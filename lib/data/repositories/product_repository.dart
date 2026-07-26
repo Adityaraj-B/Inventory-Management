@@ -1,4 +1,4 @@
-import '../models/product.dart';
+﻿import '../models/product.dart';
 import '../models/stock_movement.dart';
 
 abstract class ProductRepository {

@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -77,7 +77,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                     ),
                   ),
                   Text(
-                    'Available: ${product.quantityInStock} units | MRP: ₹${product.mrp}',
+                    'Available: ${product.quantityInStock} units | MRP: â‚¹${product.mrp}',
                     style: TextStyle(fontSize: 13, color: Colors.grey.shade600),
                   ),
                   const SizedBox(height: 16),
@@ -94,8 +94,9 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                         label: const Text('Piece'),
                         selected: sellMode == SellMode.piece,
                         onSelected: (val) {
-                          if (val)
+                          if (val) {
                             setModalState(() => sellMode = SellMode.piece);
+                          }
                         },
                       ),
                       const SizedBox(width: 8),
@@ -105,8 +106,9 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                         ),
                         selected: sellMode == SellMode.innerBox,
                         onSelected: (val) {
-                          if (val)
+                          if (val) {
                             setModalState(() => sellMode = SellMode.innerBox);
+                          }
                         },
                       ),
                     ],
@@ -137,7 +139,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                             decimal: true,
                           ),
                           decoration: InputDecoration(
-                            labelText: 'Unit Rate (₹)',
+                            labelText: 'Unit Rate (â‚¹)',
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12),
                             ),
@@ -248,7 +250,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                                 ),
                               ),
                               subtitle: Text(
-                                'SKU: ${product.sku} | Stock: ${product.quantityInStock} pcs | MRP: ₹${product.mrp}',
+                                'SKU: ${product.sku} | Stock: ${product.quantityInStock} pcs | MRP: â‚¹${product.mrp}',
                               ),
                               trailing: IconButton(
                                 icon: const Icon(
@@ -274,7 +276,7 @@ class _InvoiceManualSelectScreenState extends State<InvoiceManualSelectScreen> {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.08),
+                        color: Colors.black.withValues(alpha: 0.08),
                         blurRadius: 10,
                         offset: const Offset(0, -4),
                       ),

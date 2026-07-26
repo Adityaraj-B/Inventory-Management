@@ -1,4 +1,4 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen>
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
         borderSide: BorderSide(
-          color: AppColors.error.withOpacity(0.5),
+          color: AppColors.error.withValues(alpha: 0.5),
           width: 1.2,
         ),
       ),
@@ -210,12 +210,12 @@ class _LoginScreenState extends State<LoginScreen>
 
             return Stack(
               children: [
-                // Soft decorative background glow — purely cosmetic, keeps the same neutral canvas.
+                // Soft decorative background glow â€” purely cosmetic, keeps the same neutral canvas.
                 Positioned(
                   top: -120,
                   right: -80,
                   child: _BackgroundGlow(
-                    color: theme.colorScheme.primary.withOpacity(0.08),
+                    color: theme.colorScheme.primary.withValues(alpha: 0.08),
                     size: 320,
                   ),
                 ),
@@ -223,7 +223,7 @@ class _LoginScreenState extends State<LoginScreen>
                   bottom: -140,
                   left: -100,
                   child: _BackgroundGlow(
-                    color: theme.colorScheme.primary.withOpacity(0.05),
+                    color: theme.colorScheme.primary.withValues(alpha: 0.05),
                     size: 360,
                   ),
                 ),
@@ -250,13 +250,13 @@ class _LoginScreenState extends State<LoginScreen>
                                     borderRadius: BorderRadius.circular(32),
                                     boxShadow: [
                                       BoxShadow(
-                                        color: Colors.black.withOpacity(0.05),
+                                        color: Colors.black.withValues(alpha: 0.05),
                                         blurRadius: 40,
                                         offset: const Offset(0, 20),
                                       ),
                                       BoxShadow(
                                         color: theme.colorScheme.primary
-                                            .withOpacity(0.08),
+                                            .withValues(alpha: 0.08),
                                         blurRadius: 24,
                                         offset: const Offset(0, 6),
                                       ),
@@ -281,15 +281,15 @@ class _LoginScreenState extends State<LoginScreen>
                                             begin: Alignment.topLeft,
                                             end: Alignment.bottomRight,
                                             colors: [
-                                              Colors.white.withOpacity(0.97),
-                                              Colors.white.withOpacity(0.85),
+                                              Colors.white.withValues(alpha: 0.97),
+                                              Colors.white.withValues(alpha: 0.85),
                                             ],
                                           ),
                                           borderRadius: BorderRadius.circular(
                                             32,
                                           ),
                                           border: Border.all(
-                                            color: Colors.white.withOpacity(
+                                            color: Colors.white.withValues(alpha: 
                                               0.9,
                                             ),
                                             width: 1.5,
@@ -307,7 +307,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                   color: theme
                                                       .colorScheme
                                                       .primary
-                                                      .withOpacity(0.15),
+                                                      .withValues(alpha: 0.15),
                                                   width: 1.5,
                                                 ),
                                               ),
@@ -319,7 +319,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                     end: Alignment.bottomRight,
                                                     colors: [
                                                       theme.colorScheme.primary
-                                                          .withOpacity(0.85),
+                                                          .withValues(alpha: 0.85),
                                                       theme.colorScheme.primary,
                                                     ],
                                                   ),
@@ -328,7 +328,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                       color: theme
                                                           .colorScheme
                                                           .primary
-                                                          .withOpacity(0.35),
+                                                          .withValues(alpha: 0.35),
                                                       blurRadius: 24,
                                                       offset: const Offset(
                                                         0,
@@ -368,7 +368,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                   ),
                                               decoration: BoxDecoration(
                                                 color: theme.colorScheme.primary
-                                                    .withOpacity(0.07),
+                                                    .withValues(alpha: 0.07),
                                                 borderRadius:
                                                     BorderRadius.circular(20),
                                               ),
@@ -428,7 +428,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                               BoxShadow(
                                                                 color: Colors
                                                                     .black
-                                                                    .withOpacity(
+                                                                    .withValues(alpha: 
                                                                       0.06,
                                                                     ),
                                                                 blurRadius: 10,
@@ -442,7 +442,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                                 color: theme
                                                                     .colorScheme
                                                                     .primary
-                                                                    .withOpacity(
+                                                                    .withValues(alpha: 
                                                                       0.06,
                                                                     ),
                                                                 blurRadius: 4,
@@ -567,7 +567,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                           ),
                                                       child: DropdownButtonFormField<String?>(
                                                         isExpanded: true,
-                                                        value:
+                                                        initialValue:
                                                             _selectedWarehouseId ??
                                                             (_warehouses
                                                                     .isNotEmpty
@@ -662,7 +662,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                         theme
                                                             .colorScheme
                                                             .primary
-                                                            .withOpacity(0.88),
+                                                            .withValues(alpha: 0.88),
                                                         theme
                                                             .colorScheme
                                                             .primary,
@@ -673,7 +673,7 @@ class _LoginScreenState extends State<LoginScreen>
                                                         color: theme
                                                             .colorScheme
                                                             .primary
-                                                            .withOpacity(
+                                                            .withValues(alpha: 
                                                               _isPressed
                                                                   ? 0.2
                                                                   : 0.38,
@@ -815,7 +815,7 @@ class _BackgroundGlow extends StatelessWidget {
         height: size,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          gradient: RadialGradient(colors: [color, color.withOpacity(0)]),
+          gradient: RadialGradient(colors: [color, color.withValues(alpha: 0)]),
         ),
       ),
     );

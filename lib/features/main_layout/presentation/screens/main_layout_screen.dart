@@ -38,16 +38,16 @@ class MainLayoutScreen extends StatelessWidget {
                 return IgnorePointer(
                   ignoring: !isActive,
                   child: AnimatedOpacity(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeOutQuart,
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.fastLinearToSlowEaseIn,
                     opacity: isActive ? 1.0 : 0.0,
                     child: AnimatedScale(
-                      duration: const Duration(milliseconds: 300),
-                      curve: Curves.easeOutQuart,
+                      duration: const Duration(milliseconds: 400),
+                      curve: Curves.fastLinearToSlowEaseIn,
                       scale: isActive ? 1.0 : 0.98,
                       child: AnimatedSlide(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeOutQuart,
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.fastLinearToSlowEaseIn,
                         offset: isActive ? Offset.zero : const Offset(0, 0.02),
                         child: TickerMode(
                           enabled: isActive,
@@ -69,7 +69,7 @@ class MainLayoutScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(32),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.06),
+                        color: Colors.black.withValues(alpha: 0.06),
                         blurRadius: 24,
                         offset: const Offset(0, 8),
                       ),
@@ -89,8 +89,7 @@ class MainLayoutScreen extends StatelessWidget {
                           label: 'Home',
                           isSelected: currentTab == 0,
                           onTap: () {
-                            HapticFeedback.lightImpact();
-                            HapticFeedback.lightImpact();
+                            HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(0);
                           },
                         ),
@@ -99,8 +98,7 @@ class MainLayoutScreen extends StatelessWidget {
                           label: 'Stock',
                           isSelected: currentTab == 1,
                           onTap: () {
-                            HapticFeedback.lightImpact();
-                            HapticFeedback.lightImpact();
+                            HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(1);
                           },
                         ),
@@ -109,8 +107,7 @@ class MainLayoutScreen extends StatelessWidget {
                           label: 'Customers',
                           isSelected: currentTab == 2,
                           onTap: () {
-                            HapticFeedback.lightImpact();
-                            HapticFeedback.lightImpact();
+                            HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(2);
                           },
                         ),
@@ -119,8 +116,7 @@ class MainLayoutScreen extends StatelessWidget {
                           label: 'Warehouses',
                           isSelected: currentTab == 3,
                           onTap: () {
-                            HapticFeedback.lightImpact();
-                            HapticFeedback.lightImpact();
+                            HapticFeedback.selectionClick();
                             context.read<NavCubit>().selectTab(3);
                           },
                         ),
@@ -166,8 +162,8 @@ class _NavItem extends StatelessWidget {
                 .scaleXY(
                   begin: 1.0,
                   end: 1.15,
-                  duration: 300.ms,
-                  curve: Curves.easeOutBack,
+                  duration: 400.ms,
+                  curve: Curves.fastLinearToSlowEaseIn,
                 )
                 .tint(color: AppColors.primary, end: 1.0, duration: 200.ms),
             const SizedBox(height: 3),
@@ -185,8 +181,8 @@ class _NavItem extends StatelessWidget {
                 .scaleXY(
                   begin: 0.95,
                   end: 1.0,
-                  duration: 300.ms,
-                  curve: Curves.easeOutBack,
+                  duration: 400.ms,
+                  curve: Curves.fastLinearToSlowEaseIn,
                 ),
           ],
         ),

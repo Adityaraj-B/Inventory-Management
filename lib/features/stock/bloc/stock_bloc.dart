@@ -1,4 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+﻿import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/repositories/product_repository.dart';
 import '../../../data/repositories/shipment_repository.dart';
 import 'stock_event.dart';

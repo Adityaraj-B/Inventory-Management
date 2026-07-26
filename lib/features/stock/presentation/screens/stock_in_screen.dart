@@ -1,6 +1,7 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -17,8 +18,6 @@ import 'package:vishnu_enterprises/features/stock/bloc/stock_bloc.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/stock_event.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/stock_state.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/widgets/add_stock_warehouse_modal.dart';
-import 'package:vishnu_enterprises/core/routing/route_paths.dart';
-import 'package:go_router/go_router.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/widgets/product_tile.dart';
 
 class StockInScreen extends StatefulWidget {
@@ -103,7 +102,10 @@ class _StockInScreenState extends State<StockInScreen> {
                         CupertinoIcons.xmark_circle_fill,
                         color: AppColors.textMuted,
                       ),
-                      onPressed: () => Navigator.pop(modalContext),
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        Navigator.pop(modalContext);
+                      },
                     ),
                   ],
                 ),
@@ -168,7 +170,10 @@ class _StockInScreenState extends State<StockInScreen> {
         actions: [
           IconButton(
             icon: const Icon(CupertinoIcons.clock_fill, size: 20),
-            onPressed: () => _showHistoryBottomSheet(context),
+            onPressed: () {
+              HapticFeedback.lightImpact();
+              _showHistoryBottomSheet(context);
+            },
             tooltip: 'Stock Movement History',
           ),
         ],
@@ -181,7 +186,10 @@ class _StockInScreenState extends State<StockInScreen> {
           children: [
             FloatingActionButton.extended(
               heroTag: 'fab_receive_stock_in',
-              onPressed: () => context.push(RoutePaths.receiveStock),
+              onPressed: () {
+                HapticFeedback.lightImpact();
+                context.push(RoutePaths.receiveStock);
+              },
               icon: const Icon(CupertinoIcons.barcode_viewfinder, size: 18),
               label: const Text('Receive Stock'),
               backgroundColor: Colors.green.shade600,
@@ -189,7 +197,10 @@ class _StockInScreenState extends State<StockInScreen> {
             const SizedBox(height: 12),
             FloatingActionButton.extended(
               heroTag: 'fab_add_stock_in',
-              onPressed: () => AddStockWarehouseModal.show(context),
+              onPressed: () {
+                HapticFeedback.lightImpact();
+                AddStockWarehouseModal.show(context);
+              },
               icon: const Icon(CupertinoIcons.paperplane_fill, size: 18),
               label: const Text('Dispatch Stock'),
             ),

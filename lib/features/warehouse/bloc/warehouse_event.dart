@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+﻿import 'package:equatable/equatable.dart';
 import '../../../data/models/warehouse.dart';
 
 abstract class WarehouseEvent extends Equatable {

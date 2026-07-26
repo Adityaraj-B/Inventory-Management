@@ -1,4 +1,4 @@
-class Supplier {
+﻿class Supplier {
   final String id;
   final String warehouseId;
   final String name;

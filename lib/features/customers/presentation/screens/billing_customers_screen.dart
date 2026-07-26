@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:ui';
 import 'package:uuid/uuid.dart';
 import 'package:vishnu_enterprises/data/models/customer.dart';
@@ -269,8 +269,8 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                               fontSize: 15,
                             ),
                             decoration: _buildInputDecoration(
-                              'Balance (₹)',
-                              CupertinoIcons.money_dollar_circle_fill,
+                              'Balance (â‚¹)',
+                              Icons.currency_rupee,
                             ),
                           ),
                         ),
@@ -284,12 +284,12 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                         gradient: LinearGradient(
                           colors: [
                             theme.colorScheme.primary,
-                            theme.colorScheme.primary.withOpacity(0.8),
+                            theme.colorScheme.primary.withValues(alpha: 0.8),
                           ],
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: theme.colorScheme.primary.withOpacity(0.3),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.3),
                             blurRadius: 12,
                             offset: const Offset(0, 6),
                           ),
@@ -379,12 +379,12 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
             gradient: LinearGradient(
               colors: [
                 theme.colorScheme.primary,
-                theme.colorScheme.primary.withOpacity(0.8),
+                theme.colorScheme.primary.withValues(alpha: 0.8),
               ],
             ),
             boxShadow: [
               BoxShadow(
-                color: theme.colorScheme.primary.withOpacity(0.3),
+                color: theme.colorScheme.primary.withValues(alpha: 0.3),
                 blurRadius: 16,
                 offset: const Offset(0, 8),
               ),
@@ -429,7 +429,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.04),
+                      color: Colors.black.withValues(alpha: 0.04),
                       blurRadius: 16,
                       offset: const Offset(0, 4),
                     ),
@@ -523,7 +523,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.03),
+                                color: Colors.black.withValues(alpha: 0.03),
                                 blurRadius: 10,
                                 offset: const Offset(0, 4),
                               ),
@@ -537,10 +537,13 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                             color: Colors.transparent,
                             child: InkWell(
                               borderRadius: BorderRadius.circular(20),
-                              onTap: () => context.push(
-                                RoutePaths.customerDetail,
-                                extra: customer,
-                              ),
+                              onTap: () {
+                                HapticFeedback.lightImpact();
+                                context.push(
+                                  RoutePaths.customerDetail,
+                                  extra: customer,
+                                );
+                              },
                               child: Padding(
                                 padding: const EdgeInsets.all(16.0),
                                 child: Row(
@@ -555,7 +558,7 @@ class _BillingCustomersScreenState extends State<BillingCustomersScreen> {
                                           end: Alignment.bottomRight,
                                           colors: [
                                             theme.colorScheme.primary
-                                                .withOpacity(0.8),
+                                                .withValues(alpha: 0.8),
                                             theme.colorScheme.primary,
                                           ],
                                         ),

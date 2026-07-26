@@ -1,5 +1,4 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vishnu_enterprises/core/theme/app_colors.dart';
@@ -34,7 +33,7 @@ class AdminCustomerPaymentsScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -76,7 +75,7 @@ class AdminCustomerPaymentsScreen extends StatelessWidget {
             ? const EmptyState(
                 title: 'No payment history',
                 message: 'Recorded payment receipts will appear here.',
-                icon: CupertinoIcons.money_dollar,
+                icon: Icons.currency_rupee,
               )
             : ListView.builder(
                 physics: const BouncingScrollPhysics(),
@@ -108,7 +107,7 @@ class _PaymentTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(24),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 20,
             offset: const Offset(0, 8),
           ),
@@ -135,7 +134,7 @@ class _PaymentTile extends StatelessWidget {
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.green.withOpacity(0.25),
+                        color: Colors.green.withValues(alpha: 0.25),
                         blurRadius: 12,
                         offset: const Offset(0, 4),
                       ),
@@ -340,10 +339,10 @@ class _PaymentTile extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
-                  color: Colors.amber.shade50.withOpacity(0.6),
+                  color: Colors.amber.shade50.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
-                    color: Colors.amber.shade200.withOpacity(0.5),
+                    color: Colors.amber.shade200.withValues(alpha: 0.5),
                   ),
                 ),
                 child: Text(
@@ -371,9 +370,9 @@ class _PaymentTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.08),
+        color: color.withValues(alpha: 0.08),
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: color.withOpacity(0.15)),
+        border: Border.all(color: color.withValues(alpha: 0.15)),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

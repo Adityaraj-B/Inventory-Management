@@ -1,9 +1,8 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+﻿import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import '../../../data/models/shipment.dart';
 import '../../../data/repositories/shipment_repository.dart';
 import '../../../data/repositories/product_repository.dart';
-import '../../../data/models/stock_movement.dart';
 
 abstract class ReceiveStockState extends Equatable {
   const ReceiveStockState();

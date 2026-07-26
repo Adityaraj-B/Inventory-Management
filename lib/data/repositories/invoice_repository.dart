@@ -1,4 +1,4 @@
-import '../models/invoice.dart';
+﻿import '../models/invoice.dart';
 
 abstract class InvoiceRepository {
   Future<List<Invoice>> getInvoices({String? customerId});

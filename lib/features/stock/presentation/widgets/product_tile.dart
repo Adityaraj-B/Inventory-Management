@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:vishnu_enterprises/core/theme/app_colors.dart';
 import 'package:vishnu_enterprises/core/theme/app_text_styles.dart';
 import 'package:vishnu_enterprises/core/utils/formatters.dart';
@@ -47,7 +47,7 @@ class ProductTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  'SKU: ${product.sku} • Category: ${product.category}',
+                  'SKU: ${product.sku} â€¢ Category: ${product.category}',
                   style: AppTextStyles.bodySmall,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

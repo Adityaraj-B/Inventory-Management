@@ -1,4 +1,4 @@
-import 'package:supabase_flutter/supabase_flutter.dart' as supa;
+﻿import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import '../warehouse_repository.dart';
 import '../../models/warehouse.dart';
 

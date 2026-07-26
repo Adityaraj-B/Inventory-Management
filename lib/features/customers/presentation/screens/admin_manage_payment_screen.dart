@@ -1,4 +1,4 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -63,7 +63,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(
-          color: AppColors.error.withOpacity(0.5),
+          color: AppColors.error.withValues(alpha: 0.5),
           width: 1.2,
         ),
       ),
@@ -94,7 +94,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -107,7 +107,10 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                   size: 18,
                   color: Colors.black87,
                 ),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () {
+                  HapticFeedback.lightImpact();
+                  Navigator.of(context).pop();
+                },
               ),
             ),
           ),
@@ -182,12 +185,12 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                       borderRadius: BorderRadius.circular(28),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.04),
+                          color: Colors.black.withValues(alpha: 0.04),
                           blurRadius: 24,
                           offset: const Offset(0, 12),
                         ),
                         BoxShadow(
-                          color: theme.colorScheme.primary.withOpacity(0.04),
+                          color: theme.colorScheme.primary.withValues(alpha: 0.04),
                           blurRadius: 16,
                           offset: const Offset(0, 4),
                         ),
@@ -204,13 +207,13 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                Colors.white.withOpacity(0.95),
-                                Colors.white.withOpacity(0.75),
+                                Colors.white.withValues(alpha: 0.95),
+                                Colors.white.withValues(alpha: 0.75),
                               ],
                             ),
                             borderRadius: BorderRadius.circular(28),
                             border: Border.all(
-                              color: Colors.white.withOpacity(0.9),
+                              color: Colors.white.withValues(alpha: 0.9),
                               width: 1.5,
                             ),
                           ),
@@ -224,11 +227,11 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                                     height: 52,
                                     decoration: BoxDecoration(
                                       color: theme.colorScheme.primary
-                                          .withOpacity(0.08),
+                                          .withValues(alpha: 0.08),
                                       borderRadius: BorderRadius.circular(18),
                                       border: Border.all(
                                         color: theme.colorScheme.primary
-                                            .withOpacity(0.1),
+                                            .withValues(alpha: 0.1),
                                       ),
                                     ),
                                     child: Icon(
@@ -275,7 +278,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                                 ),
                                 child: Divider(
                                   height: 1,
-                                  color: Colors.black.withOpacity(0.06),
+                                  color: Colors.black.withValues(alpha: 0.06),
                                   thickness: 1.5,
                                 ),
                               ),
@@ -340,7 +343,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Colors.orange.withOpacity(0.05),
+                                    color: Colors.orange.withValues(alpha: 0.05),
                                     blurRadius: 10,
                                     offset: const Offset(0, 4),
                                   ),
@@ -367,7 +370,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 2),
                                       child: Text(
-                                        'Payment exceeds balance by ${Formatters.currency(state.excessAmount)}. Remaining balance will cap at ₹0.00.',
+                                        'Payment exceeds balance by ${Formatters.currency(state.excessAmount)}. Remaining balance will cap at â‚¹0.00.',
                                         style: const TextStyle(
                                           fontSize: 13,
                                           color: Color(0xFF9A3412),
@@ -417,14 +420,14 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                     },
                     decoration: _buildInputDecoration(
                       context,
-                      label: 'Amount Received (₹)',
-                      icon: CupertinoIcons.money_dollar_circle_fill,
+                      label: 'Amount Received (â‚¹)',
+                      icon: Icons.currency_rupee,
                     ),
                   ),
                   const SizedBox(height: 16),
 
                   DropdownButtonFormField<String>(
-                    value: state.paymentMethod,
+                    initialValue: state.paymentMethod,
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
@@ -456,8 +459,9 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                       ),
                     ],
                     onChanged: (val) {
-                      if (val != null)
+                      if (val != null) {
                         context.read<ManagePaymentCubit>().onMethodChanged(val);
+                      }
                     },
                   ),
                   const SizedBox(height: 16),
@@ -488,14 +492,14 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                       gradient: LinearGradient(
                         colors: [
                           theme.colorScheme.primary,
-                          theme.colorScheme.primary.withOpacity(0.8),
+                          theme.colorScheme.primary.withValues(alpha: 0.8),
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.primary.withOpacity(0.35),
+                          color: theme.colorScheme.primary.withValues(alpha: 0.35),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
@@ -508,6 +512,7 @@ class _AdminManagePaymentScreenState extends State<AdminManagePaymentScreen> {
                         onTap: state.isSubmitting
                             ? null
                             : () {
+                                HapticFeedback.lightImpact();
                                 context
                                     .read<ManagePaymentCubit>()
                                     .submitPayment(cust);

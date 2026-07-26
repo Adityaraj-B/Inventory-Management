@@ -1,4 +1,4 @@
-import 'data/repositories/supabase/supabase_auth_repository.dart';
+﻿import 'data/repositories/supabase/supabase_auth_repository.dart';
 import 'data/repositories/supabase/supabase_customer_repository.dart';
 import 'data/repositories/supabase/supabase_invoice_repository.dart';
 import 'data/repositories/supabase/supabase_payment_repository.dart';

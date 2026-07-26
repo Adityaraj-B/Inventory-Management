@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+﻿import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/models/customer.dart';
 import '../../../data/models/payment.dart';
@@ -128,7 +128,7 @@ class ManagePaymentCubit extends Cubit<ManagePaymentState> {
         state.copyWith(
           isSubmitting: false,
           successMessage:
-              'Payment of ₹${state.inputAmount.toStringAsFixed(2)} recorded successfully',
+              'Payment of â‚¹${state.inputAmount.toStringAsFixed(2)} recorded successfully',
         ),
       );
     } catch (e) {

@@ -1,4 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+﻿import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/repositories/customer_repository.dart';
 import 'customer_list_event.dart';
 import 'customer_list_state.dart';

@@ -1,10 +1,9 @@
-import 'dart:math' as math;
+﻿import 'dart:math' as math;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:vishnu_enterprises/core/theme/app_colors.dart';
 import 'package:vishnu_enterprises/core/widgets/empty_state.dart';
 import 'package:vishnu_enterprises/core/widgets/loading_indicator.dart';
@@ -258,7 +257,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
 
               return Column(
                 children: [
-                  // ── Top Bar: Destination & Source Warehouse selector ──
+                  // â”€â”€ Top Bar: Destination & Source Warehouse selector â”€â”€
                   _buildWarehouseSelectorHeader(
                     context,
                     destWarehouse: destWarehouse,
@@ -267,7 +266,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                     otherWarehouses: otherWarehouses,
                   ),
 
-                  // ── Search Bar ──
+                  // â”€â”€ Search Bar â”€â”€
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
                     child: Container(
@@ -275,7 +274,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                         borderRadius: BorderRadius.circular(16),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.03),
+                            color: Colors.black.withValues(alpha: 0.03),
                             blurRadius: 10,
                             offset: const Offset(0, 4),
                           ),
@@ -288,7 +287,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                     ),
                   ),
 
-                  // ── Product List from Source Warehouse ──
+                  // â”€â”€ Product List from Source Warehouse â”€â”€
                   Expanded(
                     child: BlocBuilder<StockBloc, StockState>(
                       builder: (context, stockState) {
@@ -409,7 +408,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
         borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 16,
             offset: const Offset(0, 6),
           ),
@@ -418,17 +417,17 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // ── Target / Destination Warehouse Row ──
+          // â”€â”€ Target / Destination Warehouse Row â”€â”€
           Row(
             children: [
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: AppColors.accent.withOpacity(0.1),
+                  color: AppColors.accent.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(13),
                   boxShadow: [
                     BoxShadow(
-                      color: AppColors.accent.withOpacity(0.12),
+                      color: AppColors.accent.withValues(alpha: 0.12),
                       blurRadius: 8,
                       offset: const Offset(0, 3),
                     ),
@@ -480,7 +479,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
           ),
           const SizedBox(height: 16),
 
-          // ── Source / Other Warehouses Section ──
+          // â”€â”€ Source / Other Warehouses Section â”€â”€
           Text(
             'SELECT SOURCE WAREHOUSE (OTHER WAREHOUSES)',
             style: TextStyle(
@@ -512,8 +511,8 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                   },
                   borderRadius: BorderRadius.circular(20),
                   child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 220),
-                    curve: Curves.easeOutCubic,
+                    duration: const Duration(milliseconds: 350),
+                    curve: Curves.fastLinearToSlowEaseIn,
                     padding: const EdgeInsets.symmetric(
                       horizontal: 14,
                       vertical: 9,
@@ -532,7 +531,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                       boxShadow: isSelected
                           ? [
                               BoxShadow(
-                                color: theme.colorScheme.primary.withOpacity(
+                                color: theme.colorScheme.primary.withValues(alpha: 
                                   0.26,
                                 ),
                                 blurRadius: 10,
@@ -625,7 +624,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                     contentPadding: EdgeInsets.zero,
                     leading: CircleAvatar(
                       backgroundColor: isCurrent
-                          ? AppColors.accent.withOpacity(0.15)
+                          ? AppColors.accent.withValues(alpha: 0.15)
                           : Colors.grey.shade100,
                       child: Icon(
                         Icons.warehouse_rounded,
@@ -689,7 +688,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
         border: Border.all(color: AppColors.cardBorder),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: Colors.black.withValues(alpha: 0.03),
             blurRadius: 12,
             offset: const Offset(0, 5),
           ),
@@ -725,7 +724,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
                             vertical: 3,
                           ),
                           decoration: BoxDecoration(
-                            color: theme.colorScheme.primary.withOpacity(0.08),
+                            color: theme.colorScheme.primary.withValues(alpha: 0.08),
                             borderRadius: BorderRadius.circular(7),
                           ),
                           child: Text(
@@ -855,7 +854,7 @@ class _StockTransferScreenState extends State<StockTransferScreen> {
   }
 }
 
-// ── Small floating circular icon button used in the app bar ────────────────
+// â”€â”€ Small floating circular icon button used in the app bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _CircularIconButton extends StatefulWidget {
   final IconData icon;
   final Color color;
@@ -891,12 +890,12 @@ class _CircularIconButtonState extends State<_CircularIconButton> {
         },
         child: AnimatedScale(
           scale: _pressed ? 0.9 : 1.0,
-          duration: const Duration(milliseconds: 120),
-          curve: Curves.easeOut,
+          duration: const Duration(milliseconds: 200),
+          curve: Curves.fastLinearToSlowEaseIn,
           child: Container(
             padding: const EdgeInsets.all(9),
             decoration: BoxDecoration(
-              color: widget.color.withOpacity(0.08),
+              color: widget.color.withValues(alpha: 0.08),
               shape: BoxShape.circle,
             ),
             child: Icon(widget.icon, size: 18, color: widget.color),
@@ -907,7 +906,7 @@ class _CircularIconButtonState extends State<_CircularIconButton> {
   }
 }
 
-// ── Tinted pill button (used for the "Change" destination action) ──────────
+// â”€â”€ Tinted pill button (used for the "Change" destination action) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _PillActionButton extends StatefulWidget {
   final IconData icon;
   final String label;
@@ -941,12 +940,12 @@ class _PillActionButtonState extends State<_PillActionButton> {
       },
       child: AnimatedScale(
         scale: _pressed ? 0.95 : 1.0,
-        duration: const Duration(milliseconds: 110),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
-            color: widget.color.withOpacity(0.1),
+            color: widget.color.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
@@ -970,7 +969,7 @@ class _PillActionButtonState extends State<_PillActionButton> {
   }
 }
 
-// ── Transfer action button on the product card ──────────────────────────────
+// â”€â”€ Transfer action button on the product card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _TransferButton extends StatefulWidget {
   final bool enabled;
   final VoidCallback? onTap;
@@ -995,8 +994,8 @@ class _TransferButtonState extends State<_TransferButton> {
       onTap: widget.onTap,
       child: AnimatedScale(
         scale: _pressed ? 0.95 : 1.0,
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
           decoration: BoxDecoration(
@@ -1007,7 +1006,7 @@ class _TransferButtonState extends State<_TransferButton> {
             boxShadow: widget.enabled
                 ? [
                     BoxShadow(
-                      color: Colors.orange.withOpacity(_pressed ? 0.16 : 0.32),
+                      color: Colors.orange.withValues(alpha: _pressed ? 0.16 : 0.32),
                       blurRadius: _pressed ? 6 : 12,
                       offset: Offset(0, _pressed ? 2 : 5),
                     ),
@@ -1039,7 +1038,7 @@ class _TransferButtonState extends State<_TransferButton> {
   }
 }
 
-// ── Interactive Quantity Selection Modal ──────────────────────────────────────
+// â”€â”€ Interactive Quantity Selection Modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 class _TransferQuantityModal extends StatefulWidget {
   final Product sourceProduct;
@@ -1179,7 +1178,7 @@ class _TransferQuantityModalState extends State<_TransferQuantityModal> {
             ),
             const SizedBox(height: 22),
 
-            // ── Warehouse Flow Preview Box ──
+            // â”€â”€ Warehouse Flow Preview Box â”€â”€
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -1273,7 +1272,7 @@ class _TransferQuantityModalState extends State<_TransferQuantityModal> {
             ),
             const SizedBox(height: 22),
 
-            // ── Quantity Stepper & Input ──
+            // â”€â”€ Quantity Stepper & Input â”€â”€
             const Text(
               'SELECT TRANSFER QUANTITY',
               style: TextStyle(
@@ -1386,7 +1385,7 @@ class _TransferQuantityModalState extends State<_TransferQuantityModal> {
             ),
             const SizedBox(height: 24),
 
-            // ── Confirm Transfer Button ──
+            // â”€â”€ Confirm Transfer Button â”€â”€
             _ConfirmTransferButton(
               quantity: _quantity,
               enabled: isValid,
@@ -1403,7 +1402,7 @@ class _TransferQuantityModalState extends State<_TransferQuantityModal> {
   }
 }
 
-// ── Numeric stepper control button in the transfer modal ───────────────────
+// â”€â”€ Numeric stepper control button in the transfer modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _StepperButton extends StatefulWidget {
   final IconData? icon;
   final String? label;
@@ -1428,8 +1427,8 @@ class _StepperButtonState extends State<_StepperButton> {
       onTap: widget.onTap,
       child: AnimatedScale(
         scale: _pressed ? 0.92 : 1.0,
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
           decoration: BoxDecoration(
@@ -1461,7 +1460,7 @@ class _StepperButtonState extends State<_StepperButton> {
   }
 }
 
-// ── Full-width confirm button for the transfer modal ────────────────────────
+// â”€â”€ Full-width confirm button for the transfer modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 class _ConfirmTransferButton extends StatefulWidget {
   final int quantity;
   final bool enabled;
@@ -1496,8 +1495,8 @@ class _ConfirmTransferButtonState extends State<_ConfirmTransferButton> {
           : null,
       child: AnimatedScale(
         scale: _pressed ? 0.98 : 1.0,
-        duration: const Duration(milliseconds: 110),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 200),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 16),
           decoration: BoxDecoration(
@@ -1508,7 +1507,7 @@ class _ConfirmTransferButtonState extends State<_ConfirmTransferButton> {
             boxShadow: widget.enabled
                 ? [
                     BoxShadow(
-                      color: Colors.orange.withOpacity(_pressed ? 0.18 : 0.34),
+                      color: Colors.orange.withValues(alpha: _pressed ? 0.18 : 0.34),
                       blurRadius: _pressed ? 10 : 18,
                       offset: Offset(0, _pressed ? 4 : 8),
                     ),

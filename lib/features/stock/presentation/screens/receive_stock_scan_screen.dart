@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vishnu_enterprises/core/theme/app_colors.dart';
-import 'package:vishnu_enterprises/features/auth/bloc/auth_bloc.dart';
-import 'package:vishnu_enterprises/features/auth/bloc/auth_state.dart';
 import 'package:vishnu_enterprises/features/stock/bloc/receive_stock_cubit.dart';
 import 'package:vishnu_enterprises/features/stock/presentation/widgets/receive_shipment_modal.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -19,7 +18,7 @@ class ReceiveStockScanScreen extends StatefulWidget {
 }
 
 class _ReceiveStockScanScreenState extends State<ReceiveStockScanScreen> {
-  bool _isSimulatingScan = false;
+  final bool _isSimulatingScan = false;
   final TextEditingController _manualBarcodeController =
       TextEditingController();
   final MobileScannerController _scannerController = MobileScannerController();
@@ -102,7 +101,10 @@ class _ReceiveStockScanScreenState extends State<ReceiveStockScanScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(CupertinoIcons.xmark, color: Colors.white),
-          onPressed: () => context.pop(),
+          onPressed: () {
+            HapticFeedback.lightImpact();
+            context.pop();
+          },
         ),
         title: const Text(
           'Receive Stock Scanner',
@@ -186,7 +188,10 @@ class _ReceiveStockScanScreenState extends State<ReceiveStockScanScreen> {
                     ),
                     const SizedBox(height: 12),
                     ElevatedButton.icon(
-                      onPressed: _showManualEntryDialog,
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        _showManualEntryDialog();
+                      },
                       icon: const Icon(CupertinoIcons.keyboard),
                       label: const Text('Manual Entry'),
                       style: ElevatedButton.styleFrom(

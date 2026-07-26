@@ -1,9 +1,7 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vishnu_enterprises/core/theme/app_colors.dart';
 import 'package:vishnu_enterprises/core/utils/formatters.dart';
 import 'package:vishnu_enterprises/core/widgets/empty_state.dart';
 import 'package:vishnu_enterprises/core/widgets/loading_indicator.dart';
@@ -67,7 +65,7 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -135,13 +133,13 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                         end: Alignment.bottomRight,
                         colors: [
                           theme.colorScheme.primary,
-                          theme.colorScheme.primary.withOpacity(0.85),
+                          theme.colorScheme.primary.withValues(alpha: 0.85),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
                         BoxShadow(
-                          color: theme.colorScheme.primary.withOpacity(0.3),
+                          color: theme.colorScheme.primary.withValues(alpha: 0.3),
                           blurRadius: 16,
                           offset: const Offset(0, 8),
                         ),
@@ -172,7 +170,7 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                                 vertical: 5,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: const Text(
@@ -191,14 +189,14 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                         Text(
                           cust.phone,
                           style: TextStyle(
-                            color: Colors.white.withOpacity(0.85),
+                            color: Colors.white.withValues(alpha: 0.85),
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         const SizedBox(height: 18),
                         Divider(
-                          color: Colors.white.withOpacity(0.2),
+                          color: Colors.white.withValues(alpha: 0.2),
                           height: 1,
                         ),
                         const SizedBox(height: 18),
@@ -212,7 +210,7 @@ class _AdminCustomerLedgerScreenState extends State<AdminCustomerLedgerScreen> {
                                 Text(
                                   'OUTSTANDING BALANCE',
                                   style: TextStyle(
-                                    color: Colors.white.withOpacity(0.75),
+                                    color: Colors.white.withValues(alpha: 0.75),
                                     fontSize: 11,
                                     fontWeight: FontWeight.w800,
                                     letterSpacing: 0.8,
@@ -355,7 +353,7 @@ class _ExportButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             blurRadius: 14,
             offset: const Offset(0, 4),
           ),
@@ -375,7 +373,7 @@ class _ExportButton extends StatelessWidget {
                   width: 42,
                   height: 42,
                   decoration: BoxDecoration(
-                    color: color.withOpacity(0.1),
+                    color: color.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Icon(icon, color: color, size: 22),

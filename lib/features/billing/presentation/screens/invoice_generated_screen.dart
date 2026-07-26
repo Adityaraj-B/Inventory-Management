@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -47,8 +47,8 @@ class InvoiceGeneratedScreen extends StatelessWidget {
                   return [
                     item.productName,
                     item.quantity.toString(),
-                    '₹${item.rate}',
-                    '₹${item.lineTotal}',
+                    'â‚¹${item.rate}',
+                    'â‚¹${item.lineTotal}',
                   ];
                 }).toList(),
               ),
@@ -61,21 +61,21 @@ class InvoiceGeneratedScreen extends StatelessWidget {
                     'Grand Total:',
                     style: pw.TextStyle(fontWeight: pw.FontWeight.bold),
                   ),
-                  pw.Text('₹${invoice.grandTotal}'),
+                  pw.Text('â‚¹${invoice.grandTotal}'),
                 ],
               ),
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text('Amount Paid:'),
-                  pw.Text('₹${invoice.amountPaid}'),
+                  pw.Text('â‚¹${invoice.amountPaid}'),
                 ],
               ),
               pw.Row(
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text('Outstanding Balance:'),
-                  pw.Text('₹${invoice.outstandingAmount}'),
+                  pw.Text('â‚¹${invoice.outstandingAmount}'),
                 ],
               ),
             ],

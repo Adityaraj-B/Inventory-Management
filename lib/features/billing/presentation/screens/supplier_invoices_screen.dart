@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
@@ -286,7 +286,7 @@ class _InvoiceCard extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    '₹ ${NumberFormat('#,##,##0.00').format(invoice.totalAmount)}',
+                    'â‚¹ ${NumberFormat('#,##,##0.00').format(invoice.totalAmount)}',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,

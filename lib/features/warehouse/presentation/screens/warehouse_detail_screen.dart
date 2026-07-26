@@ -1,4 +1,4 @@
-import 'dart:ui';
+﻿import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -124,7 +124,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(20),
         borderSide: BorderSide(
-          color: AppColors.error.withOpacity(0.5),
+          color: AppColors.error.withValues(alpha: 0.5),
           width: 1.2,
         ),
       ),
@@ -154,7 +154,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -198,7 +198,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
           actions: [
             AnimatedOpacity(
               opacity: _hasUnsavedChanges ? 1.0 : 0.0,
-              duration: const Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 300),
               child: Padding(
                 padding: const EdgeInsets.only(right: 12.0),
                 child: TextButton.icon(
@@ -217,7 +217,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                     ),
                   ),
                   style: TextButton.styleFrom(
-                    backgroundColor: AppColors.primary.withOpacity(0.1),
+                    backgroundColor: AppColors.primary.withValues(alpha: 0.1),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
                       vertical: 8,
@@ -279,8 +279,8 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
               children:
                   [
                         AnimatedSize(
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeOutCubic,
+                          duration: const Duration(milliseconds: 400),
+                          curve: Curves.fastLinearToSlowEaseIn,
                           child: _hasUnsavedChanges
                               ? Padding(
                                   padding: const EdgeInsets.only(bottom: 20),
@@ -295,7 +295,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                       ),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Colors.orange.withOpacity(
+                                          color: Colors.orange.withValues(alpha: 
                                             0.05,
                                           ),
                                           blurRadius: 10,
@@ -349,12 +349,12 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                               borderRadius: BorderRadius.circular(28),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.04),
+                                  color: Colors.black.withValues(alpha: 0.04),
                                   blurRadius: 24,
                                   offset: const Offset(0, 12),
                                 ),
                                 BoxShadow(
-                                  color: theme.colorScheme.primary.withOpacity(
+                                  color: theme.colorScheme.primary.withValues(alpha: 
                                     0.04,
                                   ),
                                   blurRadius: 16,
@@ -376,13 +376,13 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                       colors: [
-                                        Colors.white.withOpacity(0.95),
-                                        Colors.white.withOpacity(0.75),
+                                        Colors.white.withValues(alpha: 0.95),
+                                        Colors.white.withValues(alpha: 0.75),
                                       ],
                                     ),
                                     borderRadius: BorderRadius.circular(28),
                                     border: Border.all(
-                                      color: Colors.white.withOpacity(0.9),
+                                      color: Colors.white.withValues(alpha: 0.9),
                                       width: 1.5,
                                     ),
                                   ),
@@ -397,12 +397,12 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                             height: 48,
                                             decoration: BoxDecoration(
                                               color: theme.colorScheme.primary
-                                                  .withOpacity(0.08),
+                                                  .withValues(alpha: 0.08),
                                               borderRadius:
                                                   BorderRadius.circular(14),
                                               border: Border.all(
                                                 color: theme.colorScheme.primary
-                                                    .withOpacity(0.12),
+                                                    .withValues(alpha: 0.12),
                                               ),
                                             ),
                                             child: Icon(
@@ -557,7 +557,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                             ),
                                             CupertinoSwitch(
                                               value: _isActive,
-                                              activeColor:
+                                              activeTrackColor:
                                                   theme.colorScheme.primary,
                                               onChanged: (val) {
                                                 setState(() => _isActive = val);
@@ -570,9 +570,9 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
 
                                       AnimatedSize(
                                         duration: const Duration(
-                                          milliseconds: 300,
+                                          milliseconds: 400,
                                         ),
-                                        curve: Curves.easeInOutCubic,
+                                        curve: Curves.fastLinearToSlowEaseIn,
                                         child: _hasUnsavedChanges
                                             ? Padding(
                                                 padding: const EdgeInsets.only(
@@ -590,7 +590,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                                         theme
                                                             .colorScheme
                                                             .primary
-                                                            .withOpacity(0.85),
+                                                            .withValues(alpha: 0.85),
                                                         theme
                                                             .colorScheme
                                                             .primary,
@@ -604,7 +604,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                                         color: theme
                                                             .colorScheme
                                                             .primary
-                                                            .withOpacity(0.35),
+                                                            .withValues(alpha: 0.35),
                                                         blurRadius: 16,
                                                         offset: const Offset(
                                                           0,
@@ -685,7 +685,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
-                                color: theme.colorScheme.primary.withOpacity(
+                                color: theme.colorScheme.primary.withValues(alpha: 
                                   0.1,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
@@ -739,7 +739,7 @@ class _WarehouseDetailScreenState extends State<WarehouseDetailScreen> {
                         begin: 0.1,
                         end: 0,
                         duration: 400.ms,
-                        curve: Curves.easeOutQuart,
+                        curve: Curves.fastLinearToSlowEaseIn,
                       ),
             ),
           ),

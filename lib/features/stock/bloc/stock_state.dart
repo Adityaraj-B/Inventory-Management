@@ -1,4 +1,4 @@
-import 'package:equatable/equatable.dart';
+﻿import 'package:equatable/equatable.dart';
 import '../../../data/models/product.dart';
 import '../../../data/models/stock_movement.dart';
 import '../../../data/models/shipment.dart';

@@ -1,4 +1,4 @@
-import 'dart:convert';
+﻿import 'dart:convert';
 import 'dart:typed_data';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -312,9 +312,9 @@ class CustomerLedgerCubit extends Cubit<CustomerLedgerState> {
               headers: [
                 'Date',
                 'Description',
-                'Debit (₹)',
-                'Credit (₹)',
-                'Balance (₹)',
+                'Debit (â‚¹)',
+                'Credit (â‚¹)',
+                'Balance (â‚¹)',
               ],
               data: state.entries.map((e) {
                 return [

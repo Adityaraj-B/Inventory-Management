@@ -1,8 +1,6 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:vishnu_enterprises/core/routing/route_paths.dart';
@@ -79,7 +77,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.04),
+                        color: Colors.black.withValues(alpha: 0.04),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
@@ -112,7 +110,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                     shape: BoxShape.circle,
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.04),
+                        color: Colors.black.withValues(alpha: 0.04),
                         blurRadius: 8,
                         offset: const Offset(0, 2),
                       ),
@@ -161,7 +159,7 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                               borderRadius: BorderRadius.circular(24),
                               boxShadow: [
                                 BoxShadow(
-                                  color: Colors.black.withOpacity(0.03),
+                                  color: Colors.black.withValues(alpha: 0.03),
                                   blurRadius: 16,
                                   offset: const Offset(0, 4),
                                 ),
@@ -186,14 +184,14 @@ class _AdminCustomerDetailScreenState extends State<AdminCustomerDetailScreen> {
                                           end: Alignment.bottomRight,
                                           colors: [
                                             theme.colorScheme.primary
-                                                .withOpacity(0.8),
+                                                .withValues(alpha: 0.8),
                                             theme.colorScheme.primary,
                                           ],
                                         ),
                                         boxShadow: [
                                           BoxShadow(
                                             color: theme.colorScheme.primary
-                                                .withOpacity(0.2),
+                                                .withValues(alpha: 0.2),
                                             blurRadius: 8,
                                             offset: const Offset(0, 4),
                                           ),
@@ -540,7 +538,7 @@ class _ActionButton extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  theme.colorScheme.primary.withOpacity(0.85),
+                  theme.colorScheme.primary.withValues(alpha: 0.85),
                   theme.colorScheme.primary,
                 ],
               )
@@ -552,12 +550,12 @@ class _ActionButton extends StatelessWidget {
         boxShadow: [
           isPrimary
               ? BoxShadow(
-                  color: theme.colorScheme.primary.withOpacity(0.3),
+                  color: theme.colorScheme.primary.withValues(alpha: 0.3),
                   blurRadius: 12,
                   offset: const Offset(0, 6),
                 )
               : BoxShadow(
-                  color: Colors.black.withOpacity(0.02),
+                  color: Colors.black.withValues(alpha: 0.02),
                   blurRadius: 8,
                   offset: const Offset(0, 4),
                 ),

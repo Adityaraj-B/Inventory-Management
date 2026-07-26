@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -640,8 +640,8 @@ class _AddStockWarehouseModalState extends State<AddStockWarehouseModal> {
                         // 3. Price* (Per Unit)
                         _buildFieldLabel(
                           isAdmin
-                              ? 'PRICE PER UNIT (₹)*'
-                              : 'PRICE PER UNIT (₹) - ADMIN ONLY (LOCKED)',
+                              ? 'PRICE PER UNIT (â‚¹)*'
+                              : 'PRICE PER UNIT (â‚¹) - ADMIN ONLY (LOCKED)',
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
@@ -757,7 +757,7 @@ class _AddStockWarehouseModalState extends State<AddStockWarehouseModal> {
                         ),
                         const SizedBox(height: 20),
 
-                        // ── Real-Time Summary Card: Total Units Added ──
+                        // â”€â”€ Real-Time Summary Card: Total Units Added â”€â”€
                         Container(
                           padding: const EdgeInsets.all(16),
                           decoration: BoxDecoration(
@@ -820,7 +820,7 @@ class _AddStockWarehouseModalState extends State<AddStockWarehouseModal> {
                                     ),
                                     const SizedBox(height: 1),
                                     Text(
-                                      '$_noOfBoxes boxes × $_itemsPerBox items per box',
+                                      '$_noOfBoxes boxes Ã— $_itemsPerBox items per box',
                                       style: const TextStyle(
                                         fontSize: 11.5,
                                         fontWeight: FontWeight.w500,

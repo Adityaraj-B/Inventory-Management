@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomPageTransitions {
@@ -6,7 +6,7 @@ class CustomPageTransitions {
   static CustomTransitionPage<T> buildFadeScaleSlidePage<T>({
     required LocalKey key,
     required Widget child,
-    Duration duration = const Duration(milliseconds: 300),
+    Duration duration = const Duration(milliseconds: 400),
   }) {
     return CustomTransitionPage<T>(
       key: key,
@@ -16,7 +16,7 @@ class CustomPageTransitions {
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         final curvedAnimation = CurvedAnimation(
           parent: animation,
-          curve: Curves.easeOutQuart,
+          curve: Curves.fastLinearToSlowEaseIn,
         );
 
         final fadeAnimation = Tween<double>(
@@ -51,12 +51,12 @@ class CustomPageTransitions {
     return CustomTransitionPage<T>(
       key: key,
       child: child,
-      transitionDuration: const Duration(milliseconds: 320),
-      reverseTransitionDuration: const Duration(milliseconds: 280),
+      transitionDuration: const Duration(milliseconds: 400),
+      reverseTransitionDuration: const Duration(milliseconds: 400),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         final curvedAnimation = CurvedAnimation(
           parent: animation,
-          curve: Curves.easeOutQuart,
+          curve: Curves.fastLinearToSlowEaseIn,
         );
 
         final slideAnimation = Tween<Offset>(

@@ -6,10 +6,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:vishnu_enterprises/core/constants.dart';
 import 'package:intl/intl.dart';
 import 'package:vishnu_enterprises/core/routing/route_paths.dart';
-import 'package:vishnu_enterprises/core/theme/app_colors.dart';
 import 'package:vishnu_enterprises/core/utils/formatters.dart';
 import 'package:vishnu_enterprises/core/widgets/empty_state.dart';
 import 'package:vishnu_enterprises/core/widgets/loading_indicator.dart';
@@ -541,7 +539,10 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                                     'Scan a barcode & generate a bill instantly',
                                 icon: Icons.qr_code_scanner_rounded,
                                 color: theme.colorScheme.primary,
-                                onTap: widget.onStartBilling,
+                                onTap: () {
+                                  HapticFeedback.lightImpact();
+                                  widget.onStartBilling();
+                                },
                               ),
                             )
                             .animate()
@@ -600,9 +601,12 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                                     'Manage purchase invoices from suppliers',
                                 icon: Icons.receipt_long_rounded,
                                 color: theme.colorScheme.primary,
-                                onTap: () => context.push(
-                                  '/billing-staff/supplier-invoices',
-                                ),
+                                onTap: () {
+                                  HapticFeedback.lightImpact();
+                                  context.push(
+                                    '/billing-staff/supplier-invoices',
+                                  );
+                                },
                               ),
                             )
                             .animate()
@@ -620,9 +624,10 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                                     'Pull inventory from other warehouses',
                                 icon: Icons.swap_horiz_rounded,
                                 color: Colors.orange.shade800,
-                                onTap: () => context.push(
-                                  RoutePaths.billingStockTransfer,
-                                ),
+                                onTap: () {
+                                  HapticFeedback.lightImpact();
+                                  context.push(RoutePaths.billingStockTransfer);
+                                },
                               ),
                             )
                             .animate()
@@ -639,8 +644,10 @@ class _BillingDashboardScreenState extends State<BillingDashboardScreen> {
                                 subtitle: 'Scan incoming shipment barcodes',
                                 icon: CupertinoIcons.barcode_viewfinder,
                                 color: Colors.green.shade600,
-                                onTap: () =>
-                                    context.push(RoutePaths.receiveStock),
+                                onTap: () {
+                                  HapticFeedback.lightImpact();
+                                  context.push(RoutePaths.receiveStock);
+                                },
                               ),
                             )
                             .animate()
@@ -866,8 +873,8 @@ class _PrimaryCtaButtonState extends State<_PrimaryCtaButton> {
       onTapCancel: () => setState(() => _pressed = false),
       child: AnimatedScale(
         scale: _pressed ? 0.98 : 1.0,
-        duration: const Duration(milliseconds: 120),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(22),
@@ -1093,11 +1100,14 @@ class _QuickActionCardState extends State<_QuickActionCard> {
       onTapDown: (_) => setState(() => _pressed = true),
       onTapUp: (_) => setState(() => _pressed = false),
       onTapCancel: () => setState(() => _pressed = false),
-      onTap: widget.onTap,
+      onTap: () {
+        HapticFeedback.lightImpact();
+        widget.onTap();
+      },
       child: AnimatedScale(
         scale: _pressed ? 0.985 : 1.0,
-        duration: const Duration(milliseconds: 120),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
@@ -1191,10 +1201,13 @@ class _CategoryChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        HapticFeedback.selectionClick();
+        onTap();
+      },
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 220),
-        curve: Curves.easeOutCubic,
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.fastLinearToSlowEaseIn,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 9),
         decoration: BoxDecoration(
           color: isSelected ? color : Colors.white,
@@ -1256,11 +1269,14 @@ class _ProductCardState extends State<_ProductCard> {
       onTapDown: (_) => setState(() => _pressed = true),
       onTapUp: (_) => setState(() => _pressed = false),
       onTapCancel: () => setState(() => _pressed = false),
-      onTap: widget.onTap,
+      onTap: () {
+        HapticFeedback.lightImpact();
+        widget.onTap();
+      },
       child: AnimatedScale(
         scale: _pressed ? 0.97 : 1.0,
-        duration: const Duration(milliseconds: 110),
-        curve: Curves.easeOut,
+        duration: const Duration(milliseconds: 250),
+        curve: Curves.fastLinearToSlowEaseIn,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -1340,7 +1356,10 @@ class _ProductCardState extends State<_ProductCard> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: widget.onCopySku,
+                      onTap: () {
+                        HapticFeedback.lightImpact();
+                        widget.onCopySku();
+                      },
                       child: Container(
                         padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(

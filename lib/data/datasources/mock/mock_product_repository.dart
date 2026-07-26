@@ -1,4 +1,4 @@
-import '../../models/product.dart';
+﻿import '../../models/product.dart';
 import '../../models/stock_movement.dart';
 import '../../repositories/product_repository.dart';
 

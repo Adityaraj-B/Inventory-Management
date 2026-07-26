@@ -1,4 +1,4 @@
-import 'package:supabase_flutter/supabase_flutter.dart' as supa;
+﻿import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import '../auth_repository.dart';
 import '../../models/user.dart';
 

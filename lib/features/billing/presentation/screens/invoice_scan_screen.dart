@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
+﻿import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -25,7 +26,7 @@ class InvoiceScanScreen extends StatefulWidget {
 }
 
 class _InvoiceScanScreenState extends State<InvoiceScanScreen> {
-  bool _isSimulatingScan = false;
+  final bool _isSimulatingScan = false;
   final TextEditingController _manualBarcodeController =
       TextEditingController();
   final MobileScannerController _scannerController = MobileScannerController();
@@ -147,7 +148,10 @@ class _InvoiceScanScreenState extends State<InvoiceScanScreen> {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(CupertinoIcons.xmark, color: Colors.white),
-          onPressed: () => context.pop(),
+          onPressed: () {
+            HapticFeedback.lightImpact();
+            context.pop();
+          },
         ),
         title: const Text(
           'Barcode Scanner',
@@ -220,7 +224,10 @@ class _InvoiceScanScreenState extends State<InvoiceScanScreen> {
                     ),
                     const SizedBox(height: 16),
                     ElevatedButton.icon(
-                      onPressed: () => _simulateBarcodeScan(context),
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        _simulateBarcodeScan(context);
+                      },
                       icon: const Icon(CupertinoIcons.barcode),
                       label: const Text('Simulate Barcode Scan'),
                       style: ElevatedButton.styleFrom(
@@ -244,8 +251,10 @@ class _InvoiceScanScreenState extends State<InvoiceScanScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     OutlinedButton.icon(
-                      onPressed: () =>
-                          context.push(RoutePaths.billingManualSelect),
+                      onPressed: () {
+                        HapticFeedback.lightImpact();
+                        context.push(RoutePaths.billingManualSelect);
+                      },
                       icon: const Icon(CupertinoIcons.search, size: 18),
                       label: const Text('Manual Product Search'),
                       style: OutlinedButton.styleFrom(
@@ -260,7 +269,10 @@ class _InvoiceScanScreenState extends State<InvoiceScanScreen> {
                     if (cartCount > 0) ...[
                       const SizedBox(height: 12),
                       ElevatedButton(
-                        onPressed: () => context.push(RoutePaths.billingReview),
+                        onPressed: () {
+                          HapticFeedback.lightImpact();
+                          context.push(RoutePaths.billingReview);
+                        },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: theme.colorScheme.primary,
                           foregroundColor: Colors.white,
